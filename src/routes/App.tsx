@@ -2,17 +2,27 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Home } from "../pages/Home";
+import { useInitialState } from "../hooks/useInitialState"
 
 import { fetchItems } from "../utils/fetchItems"
+import { AppContext } from "../context/AppContext"
 
 const App: React.FC = (): JSX.Element => {
-  useEffect( () => fetchItems() )
+  const initialState = useInitialState()
+  console.log(initialState.state.offset)
+
+  useEffect( () => {
+    fetchItems()
+    initialState.increaseOffset()
+  }, [])
 
   return(
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <AppContext.Provider value={initialState}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </AppContext.Provider>
     </BrowserRouter>
   )
 }

@@ -13,5 +13,8 @@ export const fetchItems = () => {
       const solvedPromises = promises.map(promise => promise.json())
       return Promise.all(solvedPromises)
     })
-    .then(results => console.log(results))
+    .then(results => {
+      // console.log(results)
+      console.log("Fetch already done")
+    })
 }
