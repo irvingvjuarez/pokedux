@@ -9,20 +9,15 @@ export const useInitialState = () => {
     loading: true,
     error: false,
   })
-
-  const increaseOffset = () => setState({
-    ...state,
-    offset: state.offset + LIMIT
-  })
-
+  
   const addPokemons = (payload: IPokemon[]) => setState({
     ...state,
-    pokemons: [...state.pokemons, ...payload]
+    offset: state.offset + LIMIT,
+    pokemons: [...state.pokemons, ...payload],
   })
 
   return {
     state,
-    increaseOffset,
     addPokemons
   }
 }

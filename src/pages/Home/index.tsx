@@ -1,18 +1,21 @@
 import { useContext } from "react"
 import { Pokemon } from "../../components/Pokemon"
 import { AppContext } from "../../context/AppContext"
+import { IInitialState } from "../../types"
+
+import { handleFetching } from "./utils"
 
 const Home: React.FC = (): JSX.Element => {
-  const state = useContext(AppContext)
+  const initialState = useContext(AppContext)
 
   return(
     <section className="home">
       <div className="home__head">
-        <button>Fetch Data</button>
+        <button onClick={handleFetching(initialState as IInitialState)}>Fetch Data</button>
       </div>
 
       <div className="pokemon-container">
-        {state?.state.pokemons.map(pokemon => (
+        {initialState?.state.pokemons.map(pokemon => (
           <Pokemon
             key={pokemon.id}
             name={pokemon.name}
