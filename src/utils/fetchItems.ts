@@ -1,7 +1,10 @@
 import { API } from "../globals"
+import { IInitialState } from "../types"
 
-export const fetchItems = () => {
-  fetch(API)
+export const fetchItems = (initialState: IInitialState) => {
+  const { state, increaseOffset, addPokemons } = initialState
+
+  fetch(API.replace(":offset", String(state.offset)))
     .then(res => res.json())
     .then(data => {
       const requests = data.results.map(
@@ -14,7 +17,7 @@ export const fetchItems = () => {
       return Promise.all(solvedPromises)
     })
     .then(results => {
-      // console.log(results)
-      console.log("Fetch already done")
+      increaseOffset()
+      addPokemons(results)
     })
 }

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { LIMIT } from "../globals"
-import { IState } from "../types"
+import { IPokemon, IState } from "../types"
 
 export const useInitialState = () => {
   const [state, setState] = useState<IState>({
@@ -15,8 +15,14 @@ export const useInitialState = () => {
     offset: state.offset + LIMIT
   })
 
+  const addPokemons = (payload: IPokemon[]) => setState({
+    ...state,
+    pokemons: [...state.pokemons, ...payload]
+  })
+
   return {
     state,
-    increaseOffset
+    increaseOffset,
+    addPokemons
   }
 }

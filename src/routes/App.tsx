@@ -9,12 +9,10 @@ import { AppContext } from "../context/AppContext"
 
 const App: React.FC = (): JSX.Element => {
   const initialState = useInitialState()
-  console.log(initialState.state.offset)
 
-  // useEffect( () => {
-  //   fetchItems()
-  //   initialState.increaseOffset()
-  // }, [])
+  useEffect( () => {
+    fetchItems(initialState)
+  }, [])
 
   return(
     <BrowserRouter>

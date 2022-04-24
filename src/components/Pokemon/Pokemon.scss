@@ -6,9 +6,18 @@
 
   &__thumbnail{
     text-align: start;
-
-    img{
+    
+    .img-container{
+      @include skeleton;
       width: 80%;
+      height: 180px;
+      border-radius: 9px;
+
+      img{
+        border-radius: 9px;
+        width: 100%;
+        background-color: white;
+      }
     }
   }
 
