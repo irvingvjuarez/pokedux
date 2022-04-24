@@ -1,0 +1,70 @@
+.pokemon {
+  width: 250px;
+  border: 1px solid;
+  border-radius: 9px;
+  position: relative;
+
+  &__thumbnail{
+    text-align: start;
+
+    img{
+      width: 80%;
+    }
+  }
+
+  &__data{
+    padding: 9px;
+  }
+
+  &__head{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+
+    button{
+      padding: 3px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+  }
+
+  &__types {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin: 7px 0;
+
+    ul{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      list-style: none;
+    }
+
+    li{
+      padding: 4px;
+      border-radius: 9px;
+      margin-bottom: 5px;
+      background-color: rgba(0,0,0,0.07);
+    }
+  }
+
+  &__features{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px 0;
+
+    h3{
+      font-size: 17px;
+      font-weight: 400;
+      display: block;
+      margin-right: 7px;
+    }
+  }
+}

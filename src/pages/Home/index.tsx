@@ -1,6 +1,10 @@
+import { Pokemon } from "../../components/Pokemon"
+
 const Home: React.FC = (): JSX.Element => {
   return(
-    <h2>Hi, I am the HOME</h2>
+    <section>
+      <Pokemon />
+    </section>
   )
 }
 
