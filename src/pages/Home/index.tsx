@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect, useRef } from "react"
 import { Pokemon } from "../../components/Pokemon"
 import { PokemonLoader } from "../../components/PokemonLoader"
 import { AppContext } from "../../context/AppContext"
@@ -6,11 +6,18 @@ import { LIMIT } from "../../globals"
 import { IInitialState } from "../../types"
 
 import { handleFetching } from "./utils"
+import { useObserver } from "../../hooks/useObserver"
 
 const Home: React.FC = (): JSX.Element => {
   const initialState = useContext(AppContext) as IInitialState
   const { state } = initialState
   const LoaderArr = new Array(LIMIT).fill(0)
+  const containerFoot = useRef<null | HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = useObserver(initialState)
+    observer.observe(containerFoot.current as Element)
+  }, [])
 
   return(
     <section className="home">
@@ -36,6 +43,8 @@ const Home: React.FC = (): JSX.Element => {
             ))}
           </>
         )}
+
+        <div ref={containerFoot}></div>
       </div>
     </section>
   )

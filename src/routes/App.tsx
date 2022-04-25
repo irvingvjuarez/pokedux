@@ -9,9 +9,9 @@ import { fetchItems } from '../utils/fetchItems';
 const App: React.FC = (): JSX.Element => {
   const initialState = useInitialState()
 
-  useEffect(() => {
-    fetchItems(initialState)
-  }, [])
+  // useEffect(() => {
+  //   fetchItems(initialState)
+  // }, [])
 
   return(
     <BrowserRouter>
