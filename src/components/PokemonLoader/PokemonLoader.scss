@@ -1,0 +1,31 @@
+.pokemon-loader{
+  width: 100%;
+  display: grid;
+  grid-template-rows: 180px 1fr;
+  gap: 10px;
+  &__thumbnail{
+    @include skeleton;
+    width: inherit;
+    border-radius: 9px;
+  }
+
+  &__data{
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    gap: 5px;
+    place-content: center;
+  }
+
+  &__image{
+    @include skeleton;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+
+  &__text-line{
+    @include skeleton;
+    height: 20px;
+    margin: 5px 0;
+  }
+}

@@ -4,8 +4,6 @@ import { IInitialState } from "../types"
 export const fetchItems = (initialState: IInitialState) => {
   const { state, addPokemons } = initialState
 
-  console.log("Offset", state.offset)
-
   fetch(API.replace(":OFFSET", String(state.offset)))
     .then(res => res.json())
     .then(data => {
