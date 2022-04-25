@@ -13,11 +13,13 @@ const Home: React.FC = (): JSX.Element => {
   const { state } = initialState
   const LoaderArr = new Array(LIMIT).fill(0)
   const containerFoot = useRef<null | HTMLDivElement>(null)
+  const observer = useObserver(initialState)
 
   useEffect(() => {
-    const observer = useObserver(initialState)
     observer.observe(containerFoot.current as Element)
-  }, [])
+  }, [state.pokemons])
+
+  // console.log(state.pokemons)
 
   return(
     <section className="home">
