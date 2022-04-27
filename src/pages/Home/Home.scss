@@ -1,6 +1,6 @@
 .home{
   width: 100%;
-  max-width: 900px;
+  max-width: var(--maxwidth);
   margin: 0 auto;
 
   &__head{

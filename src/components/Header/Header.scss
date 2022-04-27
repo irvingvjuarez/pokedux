@@ -1,9 +1,37 @@
 .header{
   width: 100%;
+  padding: 12px;
+  letter-spacing: 0.5px;
+
+  &__logo{
+    width: 30px;
+    margin-right: 5px;
+  }
+
+  &__branding{
+    display: flex;
+    align-items: center;
+  }
 
   &__wrapper{
     width: inherit;
     max-width: var(--maxwidth);
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__search{
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-content: center;
+    border: none;
+    background-color: transparent;
+
+    img{
+      width: inherit;
+    }
   }
 }
