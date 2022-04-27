@@ -1,3 +1,7 @@
+:root{
+  --maxwidth: 1200px;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -29,5 +33,6 @@ body {
 
 @import './components/Pokemon/Pokemon.scss';
 @import './components/PokemonLoader/PokemonLoader.scss';
+@import './components/Header/Header.scss';
 
 @import './pages/Home/Home.scss'

@@ -5,20 +5,19 @@ import { useInitialState } from "../hooks/useInitialState"
 import { AppContext } from "../context/AppContext"
 import { useEffect } from 'react';
 import { fetchItems } from '../utils/fetchItems';
+import { Layout } from "../containers/Layout"
 
 const App: React.FC = (): JSX.Element => {
   const initialState = useInitialState()
 
-  // useEffect(() => {
-  //   fetchItems(initialState)
-  // }, [])
-
   return(
     <BrowserRouter>
       <AppContext.Provider value={initialState}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Layout>
       </AppContext.Provider>
     </BrowserRouter>
   )

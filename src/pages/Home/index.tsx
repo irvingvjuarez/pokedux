@@ -7,17 +7,19 @@ import { IInitialState } from "../../types"
 
 import { handleFetching } from "./utils"
 import { useObserver } from "../../hooks/useObserver"
+import { fetchItems } from "../../utils/fetchItems"
 
 const Home: React.FC = (): JSX.Element => {
   const initialState = useContext(AppContext) as IInitialState
   const { state } = initialState
   const LoaderArr = new Array(LIMIT).fill(0)
   const containerFoot = useRef<null | HTMLDivElement>(null)
-  const observer = useObserver(initialState)
-
+  
   useEffect(() => {
-    observer.observe(containerFoot.current as Element)
-  }, [state.pokemons])
+    fetchItems(initialState, containerFoot.current as Element)
+    // const observer = useObserver(initialState)
+    // observer.observe(containerFoot.current as Element)
+  }, [])
 
   // console.log(state.pokemons)
 
