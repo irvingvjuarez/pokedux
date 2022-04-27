@@ -1,6 +1,4 @@
 import { useContext, useEffect, useRef } from "react"
-import { Pokemon } from "../../components/Pokemon"
-import { PokemonLoader } from "../../components/PokemonLoader"
 import { AppContext } from "../../context/AppContext"
 import { LIMIT } from "../../globals"
 import { IInitialState } from "../../types"
@@ -8,6 +6,7 @@ import { IInitialState } from "../../types"
 import { handleFetching } from "./utils"
 import { useObserver } from "../../hooks/useObserver"
 import { fetchItems } from "../../utils/fetchItems"
+import { Pokemons } from "../../containers/Pokemons"
 
 const Home: React.FC = (): JSX.Element => {
   const initialState = useContext(AppContext) as IInitialState
@@ -25,31 +24,7 @@ const Home: React.FC = (): JSX.Element => {
 
   return(
     <section className="home">
-      <div className="home__head">
-        <button onClick={handleFetching(initialState as IInitialState)}>Fetch Data</button>
-      </div>
-
-      <div className="pokemon-container">
-        {state.pokemons.length ? (
-          <>
-            {state.pokemons.map(pokemon => (
-              <Pokemon
-                key={pokemon.id}
-                name={pokemon.name}
-                image={pokemon.sprites.front_default}
-              />
-              ))}
-          </>
-        ) : (
-          <>
-            {LoaderArr.map(loader => (
-              <PokemonLoader key={Math.random()} />
-            ))}
-          </>
-        )}
-
-        <div ref={containerFoot}></div>
-      </div>
+      <Pokemons />
     </section>
   )
 }
