@@ -27,5 +27,5 @@ export interface IState {
 
 export interface IInitialState {
   state: IState,
-  addPokemons(pokemons: IPokemon[]): void
+  addPokemons(pokemons: IPokemon[], api: string): void
 }

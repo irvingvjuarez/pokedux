@@ -9,8 +9,7 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
     height,
     weight,
     base_experience,
-    types,
-    id
+    types
   } = data
   const [isImageHovered, setIsImageHovered] = useState<boolean>(false)
   const handleIn = () => setIsImageHovered(true)
