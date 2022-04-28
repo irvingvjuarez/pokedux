@@ -3,6 +3,19 @@
   display: grid;
   grid-template-columns: 230px;
   place-content: center;
-  gap: 15px;
+  column-gap: 10px;
+  row-gap: 15px;
   padding-block: 15px;
+  
+  @media screen and (min-width: 520px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 750px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 950px){
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
