@@ -2,13 +2,15 @@
   width: 100%;
   padding: 12px;
   letter-spacing: 0.5px;
-
+  
   &__logo{
     width: 30px;
     margin-right: 5px;
   }
-
+  
   &__branding{
+    text-decoration: none;
+    color: black;
     display: flex;
     align-items: center;
   }
