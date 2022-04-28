@@ -2,7 +2,13 @@ import { useState } from "react"
 import { PokemonProps } from "./types"
 
 const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
-  const { sprites: {front_default, back_default}, name } = data
+  const { 
+    sprites: {front_default, back_default},
+    name,
+    height,
+    weight,
+    base_experience
+  } = data
   const [isImageHovered, setIsImageHovered] = useState<boolean>(false)
   const handleIn = () => setIsImageHovered(true)
   const handleOut = () => setIsImageHovered(false)
@@ -23,15 +29,15 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
         <ul className="pokemon__details">
           <li className="pokemon__detail">
             Height
-            <span>10</span>
+            <span>{height}</span>
           </li>
           <li className="pokemon__detail">
             Experience
-            <span>10</span>
+            <span>{base_experience}</span>
           </li>
           <li className="pokemon__detail">
             Weight
-            <span>10</span>
+            <span>{weight}</span>
           </li>
         </ul>
       </div>
