@@ -1,5 +1,6 @@
 .pokemons-container{
   width: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 230px;
   place-content: center;

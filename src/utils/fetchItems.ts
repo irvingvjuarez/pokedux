@@ -1,18 +1,16 @@
-import { API } from "../globals"
-import { IInitialState } from "../types"
-import { observer } from "./observer"
+import { IInitialState, } from "../types"
 
-export const fetchItems = (initialState: IInitialState, observed?: Element) => {
-  const { state, addPokemons } = initialState
+export const fetchItems = (initialState: IInitialState) => {
+  const { state:{api}, addPokemons } = initialState
+  let newApi: string
 
-  // console.log(state.offset)
-
-  fetch(API.replace(":OFFSET", String(state.offset)))
+  fetch(api)
     .then(res => res.json())
     .then(data => {
       const requests = data.results.map(
         (result: {url: string}) => fetch(result.url)
       )
+      newApi = data.next
       return Promise.all(requests)
     })
     .then(promises => {
@@ -20,7 +18,6 @@ export const fetchItems = (initialState: IInitialState, observed?: Element) => {
       return Promise.all(solvedPromises)
     })
     .then(results => {
-      if(observed) observer.observe(observed)
-      addPokemons(results)
+      addPokemons(results, newApi)
     })
 }

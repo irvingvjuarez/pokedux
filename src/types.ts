@@ -22,6 +22,7 @@ export interface IState {
   offset: number;
   loading: boolean;
   error: boolean;
+  api: string;
 }
 
 export interface IInitialState {
