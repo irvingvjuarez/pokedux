@@ -3,36 +3,33 @@ import { PokemonProps } from "./types"
 const Pokemon: React.FC<PokemonProps> = ({ name, image }): JSX.Element => {
   return(
     <div className="pokemon">
-      <div className="pokemon__thumbnail">
-        <div className="img-container">
-          <img
-            src={image}
-            alt={name}
-          />
+      <div className="pokemon__profile">
+        <div className="pokemon__picture">
+          <img src={image} alt={name} />
         </div>
 
-          <div className="pokemon__types">
-            <ul>
-              <li>Normal</li>
-              <li>Flying</li>
-            </ul>
-          </div>
+        <h3 className="pokemon__name">{name}</h3>
+
+        <ul className="pokemon__details">
+          <li className="pokemon__detail">
+            Height
+            <span>10</span>
+          </li>
+          <li className="pokemon__detail">
+            Experience
+            <span>10</span>
+          </li>
+          <li className="pokemon__detail">
+            Weight
+            <span>10</span>
+          </li>
+        </ul>
       </div>
 
-      <div className="pokemon__data">
-        <div className="pokemon__head">
-          <h2>{name}</h2>
-          <button>
-            Add
-          </button>
-        </div>
-
-        <div className="pokemon__body">
-          <div className="pokemon__features">
-            <h3>Height: <code>15</code></h3>
-            <h3>Weight: <code>395</code></h3>
-          </div>
-        </div>
+      <div className="pokemon__button">
+        <button>
+          View Detail
+        </button>
       </div>
     </div>
   )
