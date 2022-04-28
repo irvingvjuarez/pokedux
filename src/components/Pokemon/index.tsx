@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { PokemonProps } from "./types"
+import { Link } from "react-router-dom"
 
 const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
   const { 
@@ -8,7 +9,8 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
     height,
     weight,
     base_experience,
-    types
+    types,
+    id
   } = data
   const [isImageHovered, setIsImageHovered] = useState<boolean>(false)
   const handleIn = () => setIsImageHovered(true)
@@ -47,18 +49,16 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
             <li
               key={item.type.name}
               className="pokemon__type" >
-                
+
               {item.type.name}
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="pokemon__button">
-        <button>
-          View Detail
-        </button>
-      </div>
+      <Link to={`/pokemon/${name}`} className="pokemon__button">
+        View Detail
+      </Link>
     </div>
   )
 }
