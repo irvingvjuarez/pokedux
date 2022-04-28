@@ -1,12 +1,16 @@
-const callback: IntersectionObserverCallback = (entries) => {
-  const el = entries[0]
-  if(el.intersectionRatio >= 1){
-    console.log("Trigger something here")
-  }
-}
 const config = {
-  threshold: 1.0,
-  rootMargin: "0px",
+  threshold: 0.1,
+  // rootMargin: "200px",
 }
 
-export const observer = new IntersectionObserver(callback, config)
+// const isFullyVisible = (entry: IntersectionObserverEntry) => entry.intersectionRatio >= 1
+const listening = (el: IntersectionObserverEntry) => {
+  if(el.intersectionRatio >= 0.75){
+    console.log("Hi")
+  }
+}
+
+export const observer = new IntersectionObserver((entries) => {
+  entries
+    .forEach(listening)
+}, config)

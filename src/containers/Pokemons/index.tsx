@@ -11,8 +11,8 @@ const Pokemons: React.FC = (): JSX.Element => {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    // fetchItems(initialState)
-    observer.observe(containerRef.current as HTMLDivElement)
+    fetchItems(initialState)
+    // observer.observe(containerRef.current as HTMLDivElement)
   }, [])
 
   return(

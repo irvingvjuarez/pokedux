@@ -7,7 +7,8 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
     name,
     height,
     weight,
-    base_experience
+    base_experience,
+    types
   } = data
   const [isImageHovered, setIsImageHovered] = useState<boolean>(false)
   const handleIn = () => setIsImageHovered(true)
@@ -39,6 +40,17 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
             Weight
             <span>{weight}</span>
           </li>
+        </ul>
+
+        <ul className="pokemon__types">
+          {types.map(item => (
+            <li
+              key={item.type.name}
+              className="pokemon__type" >
+                
+              {item.type.name}
+            </li>
+          ))}
         </ul>
       </div>
 
