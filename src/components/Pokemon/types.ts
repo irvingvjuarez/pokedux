@@ -1,4 +1,5 @@
+import { IPokemon } from "../../types";
+
 export interface PokemonProps {
-  name: string;
-  image: string;
+  data: IPokemon
 }

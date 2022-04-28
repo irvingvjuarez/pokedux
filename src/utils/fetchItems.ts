@@ -5,7 +5,7 @@ import { observer } from "./observer"
 export const fetchItems = (initialState: IInitialState, observed?: Element) => {
   const { state, addPokemons } = initialState
 
-  console.log(state.offset)
+  // console.log(state.offset)
 
   fetch(API.replace(":OFFSET", String(state.offset)))
     .then(res => res.json())

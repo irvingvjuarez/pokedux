@@ -11,8 +11,7 @@ const Pokemons: React.FC = (): JSX.Element => {
       {state.pokemons.map(pokemon => (
         <Pokemon
           key={pokemon.id}
-          name={pokemon.name}
-          image={pokemon.sprites.front_default} />
+          data={pokemon} />
       ))}
     </div>
   )

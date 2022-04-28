@@ -1,11 +1,21 @@
+import { useState } from "react"
 import { PokemonProps } from "./types"
 
-const Pokemon: React.FC<PokemonProps> = ({ name, image }): JSX.Element => {
+const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
+  const { sprites: {front_default, back_default}, name } = data
+  const [isImageHovered, setIsImageHovered] = useState<boolean>(false)
+  const handleIn = () => setIsImageHovered(true)
+  const handleOut = () => setIsImageHovered(false)
+
   return(
     <div className="pokemon">
       <div className="pokemon__profile">
         <div className="pokemon__picture">
-          <img src={image} alt={name} />
+          <img
+            onMouseOver={handleIn}
+            onMouseOut={handleOut}
+            src={isImageHovered ? back_default : front_default}
+            alt={name} />
         </div>
 
         <h3 className="pokemon__name">{name}</h3>
