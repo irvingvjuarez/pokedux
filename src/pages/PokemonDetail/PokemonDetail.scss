@@ -37,17 +37,6 @@
     @include reset-list;
   }
 
-  &__media{
-    align-items: center;
-    li{
-      margin: 0 3px;
-    }
-
-    img{
-      width: 25px;
-    }
-  }
-
   &__cta{
     @include reset-button;
     border: 2px solid rgba(0,0,0,0.25);

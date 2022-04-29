@@ -4,12 +4,8 @@ import { AppContext } from "../../context/AppContext"
 import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
 import { IPokemon } from "../../types"
-import { Dropdown } from "../../components/Dropdown"
 import { Section } from "./Section"
-
-import Linkedin from "../../assets/linkedin.png"
-import Twitter from "../../assets/twitter.png"
-import Github from "../../assets/github.png"
+import { Media } from "../../components/Media"
 
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
@@ -41,11 +37,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
           </div>
 
           <nav className="pokemon-detail__head">
-            <ul className="pokemon-detail__media">
-              <li><img src={Linkedin} alt="linkedin" /></li>
-              <li><img src={Github} alt="github" /></li>
-              <li><img src={Twitter} alt="twitter" /></li>
-            </ul>
+            <Media />
 
             <button className="pokemon-detail__cta">
               Catch it

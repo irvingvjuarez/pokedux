@@ -1,0 +1,11 @@
+.media{
+  @include reset-list;
+  align-items: center;
+  li{
+    margin: 0 3px;
+  }
+
+  img{
+    width: 25px;
+  }
+}
