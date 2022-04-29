@@ -1,8 +1,11 @@
 import { useState } from "react"
 import { DropdownProps } from "./types"
+import { setGenericList } from "./services/setGenericList"
+import { IStat } from "../../types"
 const LIST_LIMIT = 4
 
 const Dropdown: React.FC<DropdownProps> = ({ list }): JSX.Element => {
+  list = setGenericList(list)
   const sublist = list.filter((item, index) => index <= LIST_LIMIT - 1)
   const [isDown, setIsDown] = useState<boolean>(false)
   const renderedList = isDown ? list : sublist
@@ -12,8 +15,8 @@ const Dropdown: React.FC<DropdownProps> = ({ list }): JSX.Element => {
     <>
       <ul className="dropdown">
         {renderedList.map(item => (
-          <li className="dropdown__item" key={item.stat.name}>
-            {item.stat.name} <span>{item.base_stat}</span>
+          <li className="dropdown__item" key={item.key}>
+            {item.key} <span>{item.value}</span>
           </li>
         ))}
       </ul>

@@ -4,6 +4,17 @@ interface IPokemonTypes {
   }
 }
 
+export interface IGenericItem {
+  key: string,
+  value: number
+}
+
+export interface IMove{
+  move: {
+    name: string
+  }
+}
+
 export interface IStat {
   base_stat: number,
   stat: {
@@ -22,7 +33,8 @@ export interface IPokemon {
   base_experience: number,
   height: number,
   weight: number,
-  stats: IStat[]
+  stats: IStat[],
+  moves: IMove[]
 }
 
 export interface IState {
