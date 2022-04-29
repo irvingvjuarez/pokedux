@@ -1,40 +1,29 @@
 import { useState } from "react"
-import { IStat } from "../../types"
-
-interface DropdownProps {
-  list: IStat[]
-}
-
-let componentList: IStat[]
+import { DropdownProps } from "./types"
+const LIST_LIMIT = 4
 
 const Dropdown: React.FC<DropdownProps> = ({ list }): JSX.Element => {
+  const sublist = list.filter((item, index) => index <= LIST_LIMIT - 1)
   const [isDown, setIsDown] = useState<boolean>(false)
-  const [sublist] = useState(list.splice(0, 4))
-  const [newList] = useState(list)
+  const renderedList = isDown ? list : sublist
   const handleToggle = () => setIsDown(prev => !prev)
-  const renderList = (listArr: IStat[]) => (<>
-    {listArr.map(item => (
-      <li className="dropdown__item" key={item.stat.name}>
-        {item.stat.name} <span>{item.base_stat}</span>
-      </li>
-    ))}
-  </>)
 
   return(
     <>
       <ul className="dropdown">
-        {renderList(sublist)}
-
-        {isDown && (
-          <> {renderList(list)} </>
-        )}
+        {renderedList.map(item => (
+          <li className="dropdown__item" key={item.stat.name}>
+            {item.stat.name} <span>{item.base_stat}</span>
+          </li>
+        ))}
       </ul>
 
-      {newList.length && (
+      {list.length > LIST_LIMIT && (
         <button
           onClick={handleToggle}
           className="dropdown__toggle">
-          See {newList.length} more
+          
+          {isDown ? "Hide" : `See ${list.length - LIST_LIMIT} more`}
         </button>
       )}
     </>
