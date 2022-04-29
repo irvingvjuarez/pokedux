@@ -5,6 +5,7 @@ import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
 import { IPokemon } from "../../types"
 import { Dropdown } from "../../components/Dropdown"
+import { Section } from "./Section"
 
 import Linkedin from "../../assets/linkedin.png"
 import Twitter from "../../assets/twitter.png"
@@ -62,23 +63,18 @@ const PokemonDetail: React.FC = (): JSX.Element => {
             </ul>
           </div>
 
-          <div className="pokemon-detail__section pokemon-detail__overall">
-            <h2>Overall information</h2>
-            <Dropdown
-              list={[
-                {base_stat: pokemon.base_experience, stat: { name: "Experience" }},
-                {base_stat: pokemon.height, stat: { name: "Height" }},
-                {base_stat: pokemon.weight, stat: { name: "Weight" }},
-                ...pokemon.stats,
-              ]}
-              isStat={true} />
-          </div>
+          <Section 
+            title="Overall information" 
+            list={[
+              {base_stat: pokemon.base_experience, stat: { name: "Experience" }},
+              {base_stat: pokemon.height, stat: { name: "Height" }},
+              {base_stat: pokemon.weight, stat: { name: "Weight" }},
+              ...pokemon.stats,
+            ]}
+            isStat={true}
+          />
 
-          <div className="pokemon-detail__section pokemon-detail__overall">
-            <h2>Movements</h2>
-            <Dropdown
-              list={pokemon.moves} />
-          </div>
+          <Section title="Movements" list={pokemon.moves} />
         </div>
       ) : (
         <h2>Loading...</h2>

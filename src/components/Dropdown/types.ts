@@ -1,7 +1,7 @@
-import { IStat, IGenericItem, IMove } from "../../types"
+import { IList } from "../../types"
 
 export interface DropdownProps {
-  list: IStat[] | IGenericItem[] | IMove[];
+  list: IList;
   isStat?: boolean;
   // list: IStat[]
 }

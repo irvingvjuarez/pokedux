@@ -1,3 +1,5 @@
+export type IList = IStat[] | IGenericItem[] | IMove[]
+
 interface IPokemonTypes {
   type: {
     name: string
