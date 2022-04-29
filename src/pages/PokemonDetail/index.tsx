@@ -4,6 +4,11 @@ import { AppContext } from "../../context/AppContext"
 import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
 import { IPokemon } from "../../types"
+import { Dropdown } from "../../components/Dropdown"
+
+import Linkedin from "../../assets/linkedin.png"
+import Twitter from "../../assets/twitter.png"
+import Github from "../../assets/github.png"
 
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
@@ -23,9 +28,51 @@ const PokemonDetail: React.FC = (): JSX.Element => {
   }, [])
 
   return(
-    <section>
+    <section className="pokemon-detail">
       {pokemon ? (
-        <h2>{pokemon.name}</h2>
+        <div className="pokemon-detail__wrapper">
+          <div className="pokemon-detail__background">
+            <div className="pokemon-detail__picture">
+              <img
+                src={pokemon.sprites.front_default}
+                alt={pokemon.name} />
+            </div>
+          </div>
+
+          <nav className="pokemon-detail__head">
+            <ul className="pokemon-detail__media">
+              <li><img src={Linkedin} alt="linkedin" /></li>
+              <li><img src={Github} alt="github" /></li>
+              <li><img src={Twitter} alt="twitter" /></li>
+            </ul>
+
+            <button className="pokemon-detail__cta">
+              Catch it
+            </button>
+          </nav>
+
+          <div className="pokemon-detail__title">
+            <h2>{pokemon.name}</h2>
+            <ul className="pokemon-detail__types">
+              {pokemon.types.map(type => (
+                <li
+                  className="pokemon-detail__type"
+                  key={type.type.name} >{type.type.name}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="pokemon-detail__section pokemon-detail__overall">
+            <h2>Overall information</h2>
+            <Dropdown
+              list={[
+                {base_stat: pokemon.base_experience, stat: { name: "Experience" }},
+                {base_stat: pokemon.height, stat: { name: "Height" }},
+                {base_stat: pokemon.weight, stat: { name: "Weight" }},
+                ...pokemon.stats,
+              ]} />
+          </div>
+        </div>
       ) : (
         <h2>Loading...</h2>
       )}

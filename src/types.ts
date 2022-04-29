@@ -4,6 +4,13 @@ interface IPokemonTypes {
   }
 }
 
+export interface IStat {
+  base_stat: number,
+  stat: {
+    name: string
+  }
+}
+
 export interface IPokemon {
   name: string;
   id: number;
@@ -14,7 +21,8 @@ export interface IPokemon {
   types: IPokemonTypes[],
   base_experience: number,
   height: number,
-  weight: number
+  weight: number,
+  stats: IStat[]
 }
 
 export interface IState {

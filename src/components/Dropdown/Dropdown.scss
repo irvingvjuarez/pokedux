@@ -1,0 +1,23 @@
+.dropdown{
+  flex-direction: column;
+
+  &__item{
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 9px;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+  }
+
+  &__toggle{
+    @include reset-button;
+    width: 100%;
+    padding: 6px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #C4C4C4;
+    margin-top: 10px;
+    border-radius: 9px;
+  }
+}
