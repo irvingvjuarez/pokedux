@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { DropdownProps } from "./types"
 import { setGenericList } from "./services/setGenericList"
-import { IStat } from "../../types"
+import { Link } from "react-router-dom"
 const LIST_LIMIT = 4
 
-const Dropdown: React.FC<DropdownProps> = ({ list }): JSX.Element => {
-  list = setGenericList(list)
+const Dropdown: React.FC<DropdownProps> = ({ list, isStat }): JSX.Element => {
+  list = setGenericList(list, isStat)
   const sublist = list.filter((item, index) => index <= LIST_LIMIT - 1)
   const [isDown, setIsDown] = useState<boolean>(false)
   const renderedList = isDown ? list : sublist
@@ -16,7 +16,12 @@ const Dropdown: React.FC<DropdownProps> = ({ list }): JSX.Element => {
       <ul className="dropdown">
         {renderedList.map(item => (
           <li className="dropdown__item" key={item.key}>
-            {item.key} <span>{item.value}</span>
+            {item.key}
+            {isStat ? (
+              <span>{item.value}</span>
+            ) : (
+              <Link to={(item.value as string[])[0]}>See details</Link>
+            )}
           </li>
         ))}
       </ul>

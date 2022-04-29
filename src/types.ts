@@ -6,12 +6,13 @@ interface IPokemonTypes {
 
 export interface IGenericItem {
   key: string,
-  value: number
+  value: number | string[]
 }
 
 export interface IMove{
   move: {
-    name: string
+    name: string,
+    url: string
   }
 }
 

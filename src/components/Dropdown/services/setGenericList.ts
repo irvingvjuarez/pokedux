@@ -1,9 +1,8 @@
-// {base_stat: pokemon.base_experience, stat: { name: "Experience" }}
-
 import { IGenericItem } from "../../../types"
 
-const setGenericList = (list: any[]): IGenericItem[] => {
-  return list.map(item => {
+const setGenericList = (list: any[], isStat: boolean = false): IGenericItem[] => {
+
+  if(isStat) return list.map(item => {
     const genericItem = {
       key: "",
       value: 0
@@ -16,6 +15,11 @@ const setGenericList = (list: any[]): IGenericItem[] => {
 
     return genericItem
   })
+
+  return list.map(item => ({
+    key: item.move.name,
+    value: item.move.url.match(/\/\w+\/\w+\/$/i)
+  }))
 }
 
 export { setGenericList }

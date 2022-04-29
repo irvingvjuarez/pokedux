@@ -70,7 +70,14 @@ const PokemonDetail: React.FC = (): JSX.Element => {
                 {base_stat: pokemon.height, stat: { name: "Height" }},
                 {base_stat: pokemon.weight, stat: { name: "Weight" }},
                 ...pokemon.stats,
-              ]} />
+              ]}
+              isStat={true} />
+          </div>
+
+          <div className="pokemon-detail__section pokemon-detail__overall">
+            <h2>Movements</h2>
+            <Dropdown
+              list={pokemon.moves} />
           </div>
         </div>
       ) : (
