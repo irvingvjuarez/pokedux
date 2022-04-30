@@ -6,6 +6,7 @@ import { usePathName } from "../../hooks/usePathName"
 import { IPokemon } from "../../types"
 import { Section } from "./Section"
 import { Media } from "../../components/Media"
+import { Tags } from "../../components/Tags"
 
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
@@ -46,13 +47,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
           <div className="pokemon-detail__title">
             <h2>{pokemon.name}</h2>
-            <ul className="pokemon-detail__types">
-              {pokemon.types.map(type => (
-                <li
-                  className="pokemon-detail__type"
-                  key={type.type.name} >{type.type.name}</li>
-              ))}
-            </ul>
+            <Tags list={pokemon.types}/>
           </div>
 
           <Section 

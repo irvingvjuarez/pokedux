@@ -1,0 +1,26 @@
+.tags{
+  padding-top: 3px;
+
+  &__item{
+    padding: 3px 11px;
+    border-radius: 9px;
+    margin-right: 5px;
+    background-color: #A49F9F;
+    color: white;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+
+  &.center{
+    justify-content: center;
+  }
+
+  &.flex-end{
+    justify-content: flex-end;
+  }
+
+  &.flex-start{
+    justify-content: flex-start;
+  }
+}

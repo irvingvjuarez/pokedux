@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { PokemonProps } from "./types"
 import { Link } from "react-router-dom"
+import { Tags } from "../Tags"
 
 const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
   const { 
@@ -14,6 +15,7 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
   const [isImageHovered, setIsImageHovered] = useState<boolean>(false)
   const handleIn = () => setIsImageHovered(true)
   const handleOut = () => setIsImageHovered(false)
+  const handleTap = () => setIsImageHovered(prev => !prev)
 
   return(
     <div className="pokemon">
@@ -22,6 +24,7 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
           <img
             onMouseOver={handleIn}
             onMouseOut={handleOut}
+            onTouchStart={handleTap}
             src={isImageHovered ? back_default : front_default}
             alt={name} />
         </div>
@@ -43,16 +46,7 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
           </li>
         </ul>
 
-        <ul className="pokemon__types">
-          {types.map(item => (
-            <li
-              key={item.type.name}
-              className="pokemon__type" >
-
-              {item.type.name}
-            </li>
-          ))}
-        </ul>
+        <Tags list={types} align="center"/>
       </div>
 
       <Link to={`/pokemon/${name}`} className="pokemon__button">
