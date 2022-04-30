@@ -7,6 +7,7 @@ import { IPokemon } from "../../types"
 import { Section } from "./Section"
 import { Media } from "../../components/Media"
 import { Tags } from "../../components/Tags"
+import { PokemonPicture } from "../../components/PokemonPicture"
 
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
@@ -30,16 +31,16 @@ const PokemonDetail: React.FC = (): JSX.Element => {
       {pokemon ? (
         <div className="pokemon-detail__wrapper">
           <div className="pokemon-detail__background">
-            <div className="pokemon-detail__picture">
-              <img
-                src={pokemon.sprites.front_default}
-                alt={pokemon.name} />
-            </div>
+            <PokemonPicture
+              front={pokemon.sprites.front_default} 
+              back={pokemon.sprites.back_default}
+              alt={pokemon.name}
+              containerSide="82px"
+              isProfilePicture={true} />
           </div>
 
           <nav className="pokemon-detail__head">
             <Media />
-
             <button className="pokemon-detail__cta">
               Catch it
             </button>
