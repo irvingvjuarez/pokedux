@@ -11,7 +11,7 @@ class Observer {
   
   static init(){
     if(!Observer.instance){
-      Observer.instance = new IntersectionObserver(entries => {
+      Observer.instance = new IntersectionObserver((entries, observer) => {
         const visor = entries[0]
         if(visor.isIntersecting) fetchItems(Observer.state)
       }, config)
