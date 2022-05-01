@@ -1,20 +1,19 @@
+import { IInitialState } from "../types"
+import { fetchItems } from "../utils/fetchItems"
+
 const config = {
   rootMargin: "0px",
 }
 
 class Observer {
-  protected constructor(
-    protected addPokemons: unknown
-  ){}
-
   static instance: IntersectionObserver
-  static RequestApi: string
+  static state: IInitialState
   
   static init(){
     if(!Observer.instance){
       Observer.instance = new IntersectionObserver(entries => {
         const visor = entries[0]
-        if(visor.isIntersecting) console.log(Observer.RequestApi)
+        if(visor.isIntersecting) fetchItems(Observer.state)
       }, config)
     }
 
@@ -22,8 +21,8 @@ class Observer {
   }
 }
 
-const useObserver = (addPokemons: unknown, RequestApi: string) => {
-  Observer.RequestApi = RequestApi
+const useObserver = (state: IInitialState) => {
+  Observer.state = state
   return Observer.init()
 }
 

@@ -9,14 +9,14 @@ import { useObserver } from "../../hooks/useObserver"
 
 const Pokemons: React.FC = (): JSX.Element => {
   const initialState = useContext(AppContext) as IInitialState
-  const { state:{pokemons, api}, addPokemons } = initialState
+  const { state:{pokemons} } = initialState
   const visorRef = useRef<HTMLDivElement | null>(null)
-  const observer = useObserver(addPokemons, api)
+  const observer = useObserver(initialState)
 
   useEffect(() => {
     if(!pokemons.length) fetchItems(initialState)
     observer.observe(visorRef.current as HTMLDivElement)
-  }, [api])
+  }, [])
 
   return(
     <Fragment>
