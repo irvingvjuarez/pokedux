@@ -2,7 +2,7 @@ import { IInitialState } from "../types"
 import { fetchItems } from "../utils/fetchItems"
 
 const config = {
-  rootMargin: "0px",
+  rootMargin: "200px",
 }
 
 class Observer {
