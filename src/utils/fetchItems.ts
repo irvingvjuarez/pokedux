@@ -4,7 +4,7 @@ export const fetchItems = (initialState: IInitialState) => {
   const { state:{api}, addPokemons } = initialState
   let newApi: string
 
-  fetch(api)
+  if(api) fetch(api)
     .then(res => res.json())
     .then(data => {
       const requests = data.results.map(
