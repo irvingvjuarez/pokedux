@@ -2,15 +2,16 @@ import { useContext, useEffect, useRef, Fragment } from "react"
 import { AppContext } from "../../context/AppContext"
 import { IInitialState } from "../../types"
 import { fetchItems } from "../../utils/fetchItems"
-import { observer } from "../../utils/observer"
 
 import { Pokemon } from "../../components/Pokemon"
+import { useObserver } from "../../hooks/useObserver"
 
 
 const Pokemons: React.FC = (): JSX.Element => {
   const initialState = useContext(AppContext) as IInitialState
-  const { state:{pokemons} } = initialState
+  const { state:{pokemons}, addPokemons } = initialState
   const visorRef = useRef<HTMLDivElement | null>(null)
+  const observer = useObserver(addPokemons)
 
   useEffect(() => {
     if(!pokemons.length) fetchItems(initialState)
