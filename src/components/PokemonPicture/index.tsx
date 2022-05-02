@@ -6,22 +6,15 @@ const PokemonPicture: React.FC<PokemonPictureProps> = ({
   containerSide = "100px",
   isProfilePicture
 }): JSX.Element => {
-  const [isImageHovered, setIsImageHovered] = useState<boolean>(false)
-  const handleIn = () => setIsImageHovered(true)
-  const handleOut = () => setIsImageHovered(false)
-  const handleTap = () => setIsImageHovered(prev => !prev)
   const styles = { with: containerSide, height: containerSide }
 
   return(
     <div
       style={styles}
-      className={isProfilePicture ? "profile" : "pokemon-picture"}>
+      className={`pokemon-picture ${ isProfilePicture ? "profile" : "standard"}`}>
       <img
         width={containerSide}
-        onMouseOver={handleIn}
-        onMouseOut={handleOut}
-        onTouchStart={handleTap}
-        src={isImageHovered ? back : front}
+        src={front}
         alt={alt} />
     </div>
   )
