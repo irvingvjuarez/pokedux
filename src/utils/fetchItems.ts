@@ -1,11 +1,10 @@
 import { IInitialState, } from "../types"
 
 export const fetchItems = (initialState: IInitialState) => {
-  const { state:{api}, addPokemons, updateLoading } = initialState
+  const { state:{api}, addPokemons } = initialState
   let newApi: string
 
   if(api){
-    updateLoading()
     fetch(api)
       .then(res => res.json())
       .then(data => {

@@ -17,20 +17,11 @@ export const useInitialState = () => {
       offset: state.offset + LIMIT,
       pokemons: [...state.pokemons, ...payload],
       api,
-      loading: false
-    })
-  }
-
-  const updateLoading = () => {
-    setState({
-      ...state,
-      loading: true
     })
   }
 
   return {
     state,
     addPokemons,
-    updateLoading
   }
 }
