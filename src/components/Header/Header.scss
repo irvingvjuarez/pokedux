@@ -3,6 +3,10 @@
   padding: 12px;
   letter-spacing: 0.5px;
   
+  &__title{
+    color: var(--primary)
+  }
+
   &__logo{
     width: 30px;
     margin-right: 5px;
