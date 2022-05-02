@@ -10,7 +10,7 @@ import { useObserver } from "../../hooks/useObserver"
 
 const Pokemons: React.FC = (): JSX.Element => {
   const initialState = useContext(AppContext) as IInitialState
-  const { state:{pokemons} } = initialState
+  const { state:{pokemons, loading} } = initialState
   const visorRef = useRef<HTMLDivElement | null>(null)
   const observer = useObserver(initialState)
 
@@ -18,6 +18,8 @@ const Pokemons: React.FC = (): JSX.Element => {
     if(!pokemons.length) fetchItems(initialState)
     observer.observe(visorRef.current as HTMLDivElement)
   }, [])
+
+  console.log("Loading", loading)
 
   return(
     <Fragment>

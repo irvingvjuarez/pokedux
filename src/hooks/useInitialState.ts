@@ -16,12 +16,21 @@ export const useInitialState = () => {
       ...state,
       offset: state.offset + LIMIT,
       pokemons: [...state.pokemons, ...payload],
-      api
+      api,
+      loading: false
+    })
+  }
+
+  const updateLoading = () => {
+    setState({
+      ...state,
+      loading: true
     })
   }
 
   return {
     state,
-    addPokemons
+    addPokemons,
+    updateLoading
   }
 }
