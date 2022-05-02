@@ -4,6 +4,7 @@ import { IInitialState } from "../../types"
 import { fetchItems } from "../../utils/fetchItems"
 
 import { Pokemon } from "../../components/Pokemon"
+// import { Pokemon } from "../../skeletons/Pokemon"
 import { useObserver } from "../../hooks/useObserver"
 
 
