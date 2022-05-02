@@ -21,9 +21,11 @@ const PokemonDetail: React.FC = (): JSX.Element => {
       aspirantToPokemon = state?.state.pokemons.find(item => item.name === pokemonName) as IPokemon
       if(!aspirantToPokemon) aspirantToPokemon = await useFetchPokemon(pokemonName as string)
       setPokemon(aspirantToPokemon)
+      console.log(pokemon?.sprites)
     }
-
+    
     getPokemon()
+
   }, [])
 
   return(
@@ -40,7 +42,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
           </div>
 
           <nav className="pokemon-detail__head">
-            <Media />
+            <Media profile={pokemon.name} />
             <button className="pokemon-detail__cta">
               Catch it
             </button>
