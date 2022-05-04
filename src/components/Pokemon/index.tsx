@@ -2,6 +2,7 @@ import { PokemonProps } from "./types"
 import { Link } from "react-router-dom"
 import { Tags } from "../Tags"
 import { PokemonPicture } from "../PokemonPicture"
+import { useEffect, useRef, useState } from "react"
 
 const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
   const { 
@@ -12,12 +13,21 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
     base_experience,
     types
   } = data
+  const [isBack, setIsBack] = useState(false)
+  const handleChange = () => setIsBack(prev => !prev)
 
   return(
     <div className="pokemon">
       <div className="pokemon__profile">
+        <div className="pokemon__head">
+          <div className={`pokemon__switch ${isBack && "on"}`}>
+            <label htmlFor={`switch-${name}`} ></label>
+            <input onClick={handleChange} type="radio" id={`switch-${name}`} hidden />
+          </div>
+        </div>
+
         <PokemonPicture
-          front={front_default}
+          front={isBack ? back_default : front_default}
           back={back_default}
           alt={name}
           containerSide="110px"

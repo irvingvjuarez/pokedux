@@ -5,12 +5,13 @@
   background-color: white;
   position: fixed;
   box-shadow: var(--shadow);
+  z-index: 2;
   
   &__form{
     padding: 3px;
     border-radius: 9px;
     border: 1px solid var(--primary);
-    display: flex;
+    display: none;
     align-items: center;
     label{
       display: flex;
@@ -95,6 +96,10 @@
 
     &__buttons{
       display: none;
+    }
+
+    &__form{
+      display: flex;
     }
   }
 }

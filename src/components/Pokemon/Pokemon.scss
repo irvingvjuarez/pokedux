@@ -3,19 +3,46 @@
   box-shadow: var(--shadow);
   margin: 0 auto;
 
+  &__switch{
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 15px;
+    border: 1px solid var(--primary);
+    border-radius: 9px;
+    // transition: all 0.5s;
+
+    label{
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      display: block;
+    }
+  }
+
+  &__switch.on{
+    justify-content: flex-end;
+    background-color: var(--contrast-color-bg);
+    border: none;
+    label{
+      background-color: var(--contrast-color);
+    }
+  }
+
   &__button{
-    width: 60%;
-    margin: 5px auto 20px auto;
-    padding-block: 6px;
+    width: 100%;
+    padding-block: 15px;
     text-align: center;
     display: block;
     font-size: 13px;
     letter-spacing: 1px;
     text-decoration: none;
-    color: white;
+    color: hsl(0deg 66% 36%);
     font-weight: 600;
-    background-color: #e7861d;
-    border-radius: 9px;
+    text-transform: uppercase;
+    text-decoration: underline;
   }
 
   ul{
