@@ -20,7 +20,7 @@ const Pokemons: React.FC = (): JSX.Element => {
   }, [])
 
   return(
-    <Fragment>
+    <section className="pokemons">
       <div className="pokemons-container" >
         {pokemons.map(pokemon => (
           <Pokemon
@@ -30,7 +30,7 @@ const Pokemons: React.FC = (): JSX.Element => {
       </div>
 
       <div className="visor" ref={visorRef}></div>
-    </Fragment>
+    </section>
   )
 }
 
