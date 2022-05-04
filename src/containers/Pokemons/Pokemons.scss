@@ -2,11 +2,10 @@
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 230px;
+  grid-template-columns: minmax(230px, 1fr);
   place-content: center;
   column-gap: 10px;
   row-gap: 15px;
-  padding-block: 15px;
   
   @media screen and (min-width: 520px){
     grid-template-columns: repeat(2, 1fr);
@@ -18,7 +17,7 @@
     column-gap: 20px;
   }
 
-  @media screen and (min-width: 950px){
+  @media screen and (min-width: 1215px){
     grid-template-columns: repeat(4, 1fr);
   }
 }

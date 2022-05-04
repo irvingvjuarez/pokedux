@@ -2,9 +2,22 @@
   width: 90%;
   max-width: var(--maxwidth);
   margin: 0 auto;
+  padding-top: 75px;
 
   &__head{
     padding: 10px 0;
+  }
+
+  .sidebar{
+    display: none;
+  }
+
+  @media screen and (min-width: 900px){
+    display: flex;
+
+    .sidebar{
+      display: initial;
+    }
   }
 }
 

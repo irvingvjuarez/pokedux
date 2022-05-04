@@ -2,6 +2,9 @@
   width: 100%;
   padding: 12px;
   letter-spacing: 0.5px;
+  background-color: white;
+  position: fixed;
+  box-shadow: var(--shadow);
   
   &__title{
     color: var(--primary)

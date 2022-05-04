@@ -5,6 +5,7 @@ import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
 import { IPokemon } from "../../types"
 import { Section } from "./Section"
+import { Carousel } from "./Carousel"
 import { Media } from "../../components/Media"
 import { Tags } from "../../components/Tags"
 import { PokemonPicture } from "../../components/PokemonPicture"
@@ -21,7 +22,6 @@ const PokemonDetail: React.FC = (): JSX.Element => {
       aspirantToPokemon = state?.state.pokemons.find(item => item.name === pokemonName) as IPokemon
       if(!aspirantToPokemon) aspirantToPokemon = await useFetchPokemon(pokemonName as string)
       setPokemon(aspirantToPokemon)
-      console.log(pokemon?.sprites)
     }
     
     getPokemon()
@@ -63,6 +63,8 @@ const PokemonDetail: React.FC = (): JSX.Element => {
             ]}
             isStat={true}
           />
+
+          <Carousel title="Photos" imagesList={pokemon.sprites} />
 
           <Section title="Movements" list={pokemon.moves} />
         </div>

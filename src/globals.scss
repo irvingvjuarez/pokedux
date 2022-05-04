@@ -32,6 +32,16 @@ body {
   animation: loadingAnimation 3s ease-in-out infinite;
 }
 
+@mixin detail-section{
+  padding-top: 20px;
+  h2{
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+}
+
 @keyframes loadingAnimation {
   0%{
     background-position: 0% 50%;
@@ -51,11 +61,13 @@ body {
 @import './components/Media/Media.scss';
 @import './components/Tags/Tags.scss';
 @import './components/PokemonPicture/PokemonPicture.scss';
+@import './components/Sidebar/Sidebar.scss';
 
 @import './containers/Pokemons/Pokemons.scss';
 
 @import './pages/Home/Home.scss';
 @import './pages/PokemonDetail/PokemonDetail.scss';
 @import './pages/PokemonDetail/Section/Section.scss';
+@import './pages/PokemonDetail/Carousel/Carousel.scss';
 
 @import './skeletons/Pokemon/Pokemon.scss';

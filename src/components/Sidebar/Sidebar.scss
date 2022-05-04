@@ -1,0 +1,19 @@
+.sidebar{
+  min-width: 120px;
+
+  ul{
+    list-style: none;
+    position: fixed;
+  }
+
+  li{
+    padding: 8px 0;
+
+    a{
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+  }
+}
