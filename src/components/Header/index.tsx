@@ -26,6 +26,13 @@ const Header: React.FC = (): JSX.Element => {
             <img src={Hamburger} alt="" />
           </button>
         </div>
+
+        <form className="header__form">
+          <label htmlFor="search">
+            <img src={SearchIcon} alt="" />
+          </label>
+          <input type="search" id="search" placeholder="Search..." />
+        </form>
       </div>
 
       <div className={`header__sidebar ${isSidebar && "visible"}`}>
