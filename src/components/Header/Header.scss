@@ -31,16 +31,33 @@
     justify-content: space-between;
   }
 
-  &__search{
+  button{
     width: 25px;
     height: 25px;
     display: grid;
     place-content: center;
     border: none;
     background-color: transparent;
+    margin: 0 2px;
 
     img{
       width: inherit;
     }
+  }
+
+  &__buttons{
+    display: flex;
+  }
+
+  &__sidebar{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100vh;
+    transform: translateY(100%);
+    background-color: rgba(255,255,255,1);
+    box-shadow: var(--shadow);
+    padding: 9px;
   }
 }
