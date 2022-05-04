@@ -28,11 +28,9 @@ const Header: React.FC = (): JSX.Element => {
         </div>
       </div>
 
-      {isSidebar && (
-        <div className="header__sidebar">
-          <Sidebar />
-        </div>
-      )}
+      <div className={`header__sidebar ${isSidebar && "visible"}`}>
+        <Sidebar />
+      </div>
     </header>
   )
 }

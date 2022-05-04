@@ -52,12 +52,17 @@
   &__sidebar{
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 100%;
     width: 200px;
     height: 100vh;
-    transform: translateY(100%);
     background-color: rgba(255,255,255,1);
     box-shadow: var(--shadow);
     padding: 9px;
+    transform: translateX(100%);
+    transition: transform 0.5s;
+  }
+
+  &__sidebar.visible{
+    transform: translateX(0);
   }
 }
