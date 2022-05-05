@@ -3,6 +3,18 @@
   box-shadow: var(--shadow);
   margin: 0 auto;
 
+  &__head{
+
+    h3{
+      width: fit-content;
+      font-size: 0.6rem;
+      font-weight: 100;
+      letter-spacing: 0.5px;
+      margin-left: 5px;
+      margin-bottom: 5px;
+    }
+  }
+
   &__switch{
     display: flex;
     align-items: center;
@@ -10,7 +22,6 @@
     height: 15px;
     border: 1px solid var(--primary);
     border-radius: 9px;
-    // transition: all 0.5s;
 
     label{
       position: relative;

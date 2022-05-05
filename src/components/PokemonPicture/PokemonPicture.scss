@@ -3,14 +3,14 @@
     border-radius: 50%;
     display: grid;
     place-content: center;
-    margin: 0 auto;
+    margin: 5px auto;
     img{
       transition: transform 0.5s;
     }
   
-    img:hover{
-      transform: scale(1.5);
-    }
+    // img:hover{
+    //   transform: scale(1.5);
+    // }
   }
 
   &.profile{

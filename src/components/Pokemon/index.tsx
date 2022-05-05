@@ -6,7 +6,10 @@ import { useEffect, useRef, useState } from "react"
 
 const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
   const { 
-    sprites: {front_default, back_default},
+    sprites: {
+      front_default, back_default,
+      other: { dream_world }
+    },
     name,
     height,
     weight,
@@ -20,6 +23,8 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
     <div className="pokemon">
       <div className="pokemon__profile">
         <div className="pokemon__head">
+          <h3>{isBack ? "Anime" : "Normal"}</h3>
+
           <div className={`pokemon__switch ${isBack && "on"}`}>
             <label htmlFor={`switch-${name}`} ></label>
             <input onClick={handleChange} type="radio" id={`switch-${name}`} hidden />
@@ -27,7 +32,7 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
         </div>
 
         <PokemonPicture
-          front={isBack ? back_default : front_default}
+          front={isBack ? dream_world.front_default : front_default}
           back={back_default}
           alt={name}
           containerSide="110px"

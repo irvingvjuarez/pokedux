@@ -31,6 +31,11 @@ export interface IPokemon {
   sprites: {
     front_default: string;
     back_default: string;
+    other: {
+      dream_world: {
+        front_default: string
+      }
+    }
   },
   types: IPokemonTypes[],
   base_experience: number,

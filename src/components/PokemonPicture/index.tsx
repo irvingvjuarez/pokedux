@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { PokemonPictureProps } from "./types"
 
 const PokemonPicture: React.FC<PokemonPictureProps> = ({
