@@ -7,10 +7,6 @@
     img{
       transition: transform 0.5s;
     }
-  
-    // img:hover{
-    //   transform: scale(1.5);
-    // }
   }
 
   &.profile{
@@ -23,5 +19,9 @@
     background-color: white;
     display: grid;
     place-content: center;
+
+    img{
+      max-width: 100%;
+    }
   }
 }

@@ -2,7 +2,7 @@ import { PokemonProps } from "./types"
 import { Link } from "react-router-dom"
 import { Tags } from "../Tags"
 import { PokemonPicture } from "../PokemonPicture"
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 
 const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
   const { 
@@ -23,12 +23,12 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
     <div className="pokemon">
       <div className="pokemon__profile">
         <div className="pokemon__head">
-          <h3>{isBack ? "Anime" : "Normal"}</h3>
-
           <div className={`pokemon__switch ${isBack && "on"}`}>
             <label htmlFor={`switch-${name}`} ></label>
             <input onClick={handleChange} type="radio" id={`switch-${name}`} hidden />
           </div>
+
+          <h3>{isBack ? "Anime" : "Normal"}</h3>
         </div>
 
         <PokemonPicture

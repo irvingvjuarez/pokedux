@@ -1,3 +1,41 @@
 .detail-carousel{
   @include detail-section;
+
+  &__head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a{
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+  }
+
+  &__container{
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    padding: 10px 5px 10px 0;
+
+    &::-webkit-scrollbar{
+      display: none;
+    }
+
+    li{
+      scroll-snap-align: center;
+      box-shadow: var(--shadow);
+      margin: 0 10px;
+    }
+
+    img{
+      width: 200px;
+    }
+  }
 }

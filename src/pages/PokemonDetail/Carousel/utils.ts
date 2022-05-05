@@ -1,29 +1,19 @@
-const isALiteralObj = (target: unknown) => typeof target === "object" && !Array.isArray(target)
-interface INewObj {
-  [key: string]: string | object
+interface IPhoto {
+  title: string;
+  url: string;
 }
-type objType = string | INewObj | object
 
-export const cleanObj = (item: objType): objType => {
-  const validation = isALiteralObj(item)
+export const getMainPhotos = (photoObj: object) => {
+  const newObj: IPhoto[] = []
 
-  if(validation){
-    let newobj: INewObj = {}
-
-    for(let prop of Object.keys(item as object)){
-      const prospect = cleanObj( item[prop as keyof objType] )
-      if( isALiteralObj(prospect) ){
-        newobj = {
-          ...newobj,
-          ...prospect as object
-        }
-      }else{
-        newobj[prop] = prospect
-      }
+  for(let photo of Object.keys(photoObj)){
+    if(typeof photoObj[photo as keyof object] === "string"){
+      newObj.push({
+        title: photo,
+        url: photoObj[photo as keyof object]
+      })
     }
-
-    return newobj
   }
 
-  return item
+  return newObj
 }

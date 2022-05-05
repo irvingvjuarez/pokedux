@@ -34,7 +34,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
         <div className="pokemon-detail__wrapper">
           <div className="pokemon-detail__background">
             <PokemonPicture
-              front={pokemon.sprites.front_default} 
+              front={pokemon.sprites.other.dream_world.front_default}
               back={pokemon.sprites.back_default}
               alt={pokemon.name}
               containerSide="82px"
