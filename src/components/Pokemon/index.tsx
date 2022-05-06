@@ -35,12 +35,19 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
           )}
         </div>
 
-        <PokemonPicture
-          front={isBack ? dream_world.front_default : front_default}
-          back={back_default}
-          alt={name}
-          containerSide="110px"
-        />
+        <div className={`pokemon__pictures ${isBack && "on"}`}>
+          <PokemonPicture
+            front={dream_world.front_default}
+            alt={name}
+            containerSide="110px"
+          />
+
+          <PokemonPicture
+            front={front_default}
+            alt={name}
+            containerSide="110px"
+          />
+        </div>
 
         <h3 className="pokemon__name">{name}</h3>
 

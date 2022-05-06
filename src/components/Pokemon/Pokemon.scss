@@ -3,6 +3,35 @@
   box-shadow: var(--shadow);
   margin: 0 auto;
 
+  &__pictures{
+    position: relative;
+    height: 115px;
+
+    .pokemon-picture{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .pokemon-picture:nth-child(2){
+      opacity: 1;
+    }
+
+    .pokemon-picture:nth-child(1){
+      opacity: 0;
+    }
+  }
+
+  &__pictures.on{
+    .pokemon-picture:nth-child(2){
+      opacity: 0;
+    }
+
+    .pokemon-picture:nth-child(1){
+      opacity: 1;
+    }
+  }
+
   &__version{
     border: 1px solid var(--primary);
     color: var(--primary);

@@ -1,9 +1,10 @@
 .pokemon-picture {
   &.standard{
-    border-radius: 50%;
+    background-color: white;
     display: grid;
     place-content: center;
     margin: 5px auto;
+    transition: opacity 0.5s;
     img{
       transition: transform 0.5s;
     }
