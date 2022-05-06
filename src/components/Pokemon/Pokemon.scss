@@ -3,6 +3,17 @@
   box-shadow: var(--shadow);
   margin: 0 auto;
 
+  &__version{
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 3px;
+  }
+
+  &__version.on{
+    border-color: var(--contrast-color);
+    color: var(--contrast-color);
+  }
+
   &__head{
     display: flex;
     justify-content: space-between;

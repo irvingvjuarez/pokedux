@@ -23,12 +23,16 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
     <div className="pokemon">
       <div className="pokemon__profile">
         <div className="pokemon__head">
-          <div className={`pokemon__switch ${isBack && "on"}`}>
-            <label htmlFor={`switch-${name}`} ></label>
-            <input onClick={handleChange} type="radio" id={`switch-${name}`} hidden />
-          </div>
+          {dream_world.front_default && (
+            <>
+              <div className={`pokemon__switch ${isBack && "on"}`}>
+                <label htmlFor={`switch-${name}`} ></label>
+                <input onClick={handleChange} type="radio" id={`switch-${name}`} hidden />
+              </div>
 
-          <h3>{isBack ? "Anime" : "Normal"}</h3>
+              <h3 className={`pokemon__version ${isBack && "on"}`} >{isBack ? "Anime" : "Normal"}</h3>
+            </>
+          )}
         </div>
 
         <PokemonPicture
