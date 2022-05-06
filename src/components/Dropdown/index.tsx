@@ -29,7 +29,7 @@ const Dropdown: React.FC<DropdownProps> = ({ list, isStat }): JSX.Element => {
       {list.length > LIST_LIMIT && (
         <button
           onClick={handleToggle}
-          className="dropdown__toggle">
+          className={`dropdown__toggle ${isDown && "hidden"}`}>
           
           {isDown ? "Hide" : `See ${list.length - LIST_LIMIT} more`}
         </button>

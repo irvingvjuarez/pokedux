@@ -21,8 +21,14 @@
     padding: 6px 0;
     font-size: 1rem;
     font-weight: 600;
-    border: 2px solid #C4C4C4;
+    background-color: white;
+    box-shadow: var(--shadow);
     margin-top: 10px;
     border-radius: 9px;
+    
+    &.hidden{
+      position: sticky;
+      bottom: 20px;
+    }
   }
 }
