@@ -20,6 +20,10 @@ const Carousel: React.FC<CarouselProps> = ({ title, imagesList }): JSX.Element =
       </div>
 
       <div className="detail-carousel__container">
+        <div className="detail-carousel__slider">
+          <button>&laquo;</button>
+        </div>
+
         <ul
           className="detail-carousel__list"
           style={{gridTemplateColumns: `repeat(${photosArr.length}, var(--grid-percent))`}} >
@@ -30,6 +34,10 @@ const Carousel: React.FC<CarouselProps> = ({ title, imagesList }): JSX.Element =
             </li>
           ))}
         </ul>
+
+        <div className="detail-carousel__slider">
+          <button>&raquo;</button>
+        </div>
       </div>
     </section>
   )
