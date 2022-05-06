@@ -2,11 +2,15 @@
   @include detail-section;
 
   & &__list{
+    @include scrolling;
+
     width: 100%;
+    max-width: 380px;
     display: grid;
-    grid-template-columns: repeat(4, 95%);
     gap: 15px;
     place-content: start;
+    margin: 0 auto;
+    padding: 9px;
   }
 
   &__head{
@@ -27,35 +31,14 @@
   }
 
   &__container{
-    overflow-x: scroll;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
     padding: 10px;
 
-    &::-webkit-scrollbar{
-      display: none;
-    }
-
     li{
-      scroll-snap-align: center;
       box-shadow: var(--shadow);
-      // margin: 0 10px;
     }
 
     img{
       width: 100%;
-    }
-  }
-
-  @media screen and (min-width: 460px){
-    & &__list{
-      grid-template-columns: repeat(4, 65%);
-    }
-  }
-
-  @media screen and (min-width: 580px){
-    & &__list{
-      grid-template-columns: repeat(4, 47%);
     }
   }
 }

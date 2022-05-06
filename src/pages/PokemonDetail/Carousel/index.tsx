@@ -20,7 +20,10 @@ const Carousel: React.FC<CarouselProps> = ({ title, imagesList }): JSX.Element =
       </div>
 
       <div className="detail-carousel__container">
-        <ul className="detail-carousel__list">
+        <ul
+          className="detail-carousel__list"
+          style={{gridTemplateColumns: `repeat(${photosArr.length}, var(--grid-percent))`}} >
+
           {photosArr.map(photo => (
             <li key={photo.url}>
               <img src={photo.url} alt={photo.title} />

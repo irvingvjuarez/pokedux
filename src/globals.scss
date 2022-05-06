@@ -5,6 +5,11 @@
   --primary: #808080;
   --contrast-color: hsl(0deg 90% 50%);
   --contrast-color-bg: hsl(10deg 100% 50% / 30%);
+  --grid-percent: 95%;
+
+  @media screen and (min-width: 480px){
+    --grid-percent: 100%;
+  }
 }
 
 *{
@@ -41,6 +46,20 @@ body {
     font-weight: 500;
     letter-spacing: 0.5px;
     margin-bottom: 5px;
+  }
+}
+
+@mixin scrolling {
+  overflow-x: scroll;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
+
+  & > *{
+    scroll-snap-align: center;
   }
 }
 
