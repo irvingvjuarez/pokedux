@@ -25,6 +25,7 @@
     box-shadow: var(--shadow);
     margin-top: 10px;
     border-radius: 9px;
+    cursor: pointer;
     
     &.hidden{
       position: sticky;

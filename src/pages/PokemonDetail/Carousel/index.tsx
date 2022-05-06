@@ -20,7 +20,7 @@ const Carousel: React.FC<CarouselProps> = ({ title, imagesList }): JSX.Element =
       </div>
 
       <div className="detail-carousel__container">
-        <ul>
+        <ul className="detail-carousel__list">
           {photosArr.map(photo => (
             <li key={photo.url}>
               <img src={photo.url} alt={photo.title} />

@@ -4,6 +4,12 @@
   padding: 50px 12px 30px 12px;
   margin: 0 auto;
 
+  &__wrapper{
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
   &__background{
     background: var(--detail-background);
     height: 130px;
@@ -38,5 +44,11 @@
     h2{
       text-transform: capitalize;
     }
+  }
+
+  @media screen and (min-width: 650px){
+    &__background{
+      height: 200px;
+    }   
   }
 }
