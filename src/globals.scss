@@ -63,6 +63,20 @@ body {
   }
 }
 
+@mixin nice-scrollbar {
+  &::-webkit-scrollbar{
+    width: 7px;
+    background-color: white;
+    border-radius: 9px;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background-color: var(--contrast-color);
+    border-radius: 9px;
+    opacity: 0.5;
+  }
+}
+
 @keyframes loadingAnimation {
   0%{
     background-position: 0% 50%;
