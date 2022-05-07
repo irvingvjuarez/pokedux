@@ -1,4 +1,4 @@
-const Pokemon: React.FC = (): JSX.Element => {
+const PokemonSkeleton: React.FC = (): JSX.Element => {
   return(
     <div className="pokemon-skeleton">
       <div className="pokemon-skeleton__wrapper">
@@ -21,4 +21,4 @@ const Pokemon: React.FC = (): JSX.Element => {
   )
 }
 
-export { Pokemon }
+export { PokemonSkeleton }

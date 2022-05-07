@@ -25,3 +25,12 @@
     }
   }
 }
+
+.visor{
+  margin: 15px 0;
+}
+.visor.hidden{
+  & > * {
+    display: none;
+  }
+}
