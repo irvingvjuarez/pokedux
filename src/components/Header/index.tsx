@@ -7,8 +7,10 @@ import { Sidebar } from "../Sidebar"
 import { SearchField } from "../SearchField"
 
 const Header: React.FC = (): JSX.Element => {
-  const [isSidebar, setIsSidebar] = useState(false)
+  const [isSidebar, setIsSidebar] = useState<boolean>(false)
+  const [isSearching, setIsSearching] = useState<boolean>(false)
   const handleSidebar = () => setIsSidebar(prev => !prev)
+  const handleSearch = () => setIsSearching(prev => !prev)
 
   return(
     <header className="header">
@@ -19,9 +21,11 @@ const Header: React.FC = (): JSX.Element => {
         </Link>
 
         <div className="header__buttons">
-          <button className="header__search">
-            <img src={SearchIcon} alt="" />
-          </button>
+          {!isSearching && (
+            <button className="header__search" onClick={handleSearch}>
+              <img src={SearchIcon} alt="" />
+            </button>
+          )}
 
           <button className="header__menu" onClick={handleSidebar}>
             <img src={Hamburger} alt="" />
@@ -34,6 +38,14 @@ const Header: React.FC = (): JSX.Element => {
       <div className={`header__sidebar ${isSidebar && "visible"}`}>
         <Sidebar />
       </div>
+
+      {isSearching && (
+        <div className="header__float-search-field">
+          <SearchField
+            blurHandler={handleSearch}
+            focus={true} />
+        </div>
+      )}
     </header>
   )
 }

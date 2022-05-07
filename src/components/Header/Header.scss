@@ -1,4 +1,5 @@
 .header{
+  position: relative;
   width: 100%;
   padding: 12px;
   letter-spacing: 0.5px;
@@ -6,6 +7,22 @@
   position: fixed;
   box-shadow: var(--shadow);
   z-index: 2;
+
+  &__float-search-field{
+    width: 90%;
+    max-width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 150%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 9px;
+    // box-shadow: -1px -1px 1rem 100rem rgba(0,0,0,0.5);
+
+    & input{
+      width: 100%;
+    }
+  }
   
   &__wrapper .search-field{
     display: none;

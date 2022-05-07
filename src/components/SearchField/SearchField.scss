@@ -18,6 +18,10 @@
   img{
     width: 20px;
   }
+
+  &.active{
+    box-shadow: -1px -1px 1rem 100rem rgba(0,0,0,0.5);
+  }
 }
 
 // &__form{
