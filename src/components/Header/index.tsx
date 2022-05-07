@@ -4,6 +4,7 @@ import Logo from "../../assets/logo.png"
 import Hamburger from "../../assets/menu.png"
 import SearchIcon from "../../assets/search.svg"
 import { Sidebar } from "../Sidebar"
+import { SearchField } from "../SearchField"
 
 const Header: React.FC = (): JSX.Element => {
   const [isSidebar, setIsSidebar] = useState(false)
@@ -27,12 +28,7 @@ const Header: React.FC = (): JSX.Element => {
           </button>
         </div>
 
-        <form className="header__form">
-          <label htmlFor="search">
-            <img src={SearchIcon} alt="" />
-          </label>
-          <input type="search" id="search" placeholder="Search..." />
-        </form>
+        <SearchField />
       </div>
 
       <div className={`header__sidebar ${isSidebar && "visible"}`}>

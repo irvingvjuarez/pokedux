@@ -1,0 +1,24 @@
+.search-field{
+  padding: 3px;
+  border-radius: 9px;
+  border: 1px solid var(--primary);
+  display: flex;
+  align-items: center;
+  label{
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  input{
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+  }
+  
+  img{
+    width: 20px;
+  }
+}
+
+// &__form{
+// }
