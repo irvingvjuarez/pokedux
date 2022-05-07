@@ -1,5 +1,10 @@
 export type IList = IStat[] | IGenericItem[] | IMove[]
 
+export interface IResult {
+  name: string;
+  url: string;
+}
+
 export interface IPokemonTypes {
   type: {
     name: string
@@ -47,6 +52,7 @@ export interface IPokemon {
 
 export interface IState {
   pokemons: IPokemon[];
+  results: IResult[];
   offset: number;
   loading: boolean;
   error: boolean;
@@ -55,5 +61,5 @@ export interface IState {
 
 export interface IInitialState {
   state: IState,
-  addPokemons(pokemons: IPokemon[], api: string): void,
+  addPokemons(pokemons: IPokemon[], api: string, newResults: IResult[]): void,
 }

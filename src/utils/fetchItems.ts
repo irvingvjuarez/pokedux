@@ -1,8 +1,9 @@
-import { IInitialState, } from "../types"
+import { IInitialState, IResult, } from "../types"
 
 export const fetchItems = (initialState: IInitialState) => {
   const { state:{api}, addPokemons } = initialState
   let newApi: string
+  let newResults: IResult[]
 
   if(api){
     fetch(api)
@@ -12,6 +13,7 @@ export const fetchItems = (initialState: IInitialState) => {
           (result: {url: string}) => fetch(result.url)
         )
         newApi = data.next
+        newResults = data.results
         return Promise.all(requests)
       })
       .then(promises => {
@@ -19,7 +21,7 @@ export const fetchItems = (initialState: IInitialState) => {
         return Promise.all(solvedPromises)
       })
       .then(results => {
-        addPokemons(results, newApi)
+        addPokemons(results, newApi, newResults)
       })
   }
 }
