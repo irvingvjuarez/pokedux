@@ -2,6 +2,9 @@ import { getMainPhotos } from "./utils"
 import { Link } from "react-router-dom"
 import { useState, useRef, useEffect } from "react";
 
+let leftScroll: number
+const SLIDE_SIZE = 380
+
 interface CarouselProps {
   title: string;
   imagesList: object;
@@ -11,13 +14,17 @@ const Carousel: React.FC<CarouselProps> = ({ title, imagesList }): JSX.Element =
   const photosArr = getMainPhotos(imagesList)
   const sliderRef = useRef<HTMLUListElement | null>(null)
   const [slide, setSlide] = useState<number>(0)
-  const handleRight = () => setSlide(prev => prev += 380)
-  const handleLeft = () => setSlide(prev => prev -= 380)
+  const handleRight = () => setSlide(prev => prev += 1)
+  const handleLeft = () => setSlide(prev => prev -= 1)
 
   useEffect(() => {
+    if(slide >= photosArr.length) setSlide(0)
+    if(slide < 0) setSlide(photosArr.length - 1)
+    leftScroll = slide * SLIDE_SIZE
+
     if(sliderRef.current) sliderRef.current.scroll({
       top: 0,
-      left: slide,
+      left: leftScroll,
       behavior: 'smooth'
     });
   }, [slide])
