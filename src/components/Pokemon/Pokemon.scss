@@ -32,17 +32,6 @@
     }
   }
 
-  &__version{
-    border: 1px solid var(--primary);
-    color: var(--primary);
-    padding: 3px;
-  }
-
-  &__version.on{
-    border-color: var(--contrast-color);
-    color: var(--contrast-color);
-  }
-
   &__head{
     display: flex;
     justify-content: space-between;
@@ -54,33 +43,6 @@
       letter-spacing: 0.5px;
       margin-left: 5px;
       margin-bottom: 5px;
-    }
-  }
-
-  &__switch{
-    display: flex;
-    align-items: center;
-    width: 40px;
-    height: 15px;
-    border: 1px solid var(--primary);
-    border-radius: 9px;
-
-    label{
-      position: relative;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: var(--primary);
-      display: block;
-    }
-  }
-
-  &__switch.on{
-    justify-content: flex-end;
-    background-color: var(--contrast-color-bg);
-    border: none;
-    label{
-      background-color: var(--contrast-color);
     }
   }
 

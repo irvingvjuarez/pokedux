@@ -1,13 +1,14 @@
+import { useState } from "react"
 import { PokemonProps } from "./types"
 import { Link } from "react-router-dom"
 import { Tags } from "../Tags"
 import { PokemonPicture } from "../PokemonPicture"
-import { useState } from "react"
+import { Switch } from "../Switch"
 
 const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
   const { 
     sprites: {
-      front_default, back_default,
+      front_default,
       other: { dream_world }
     },
     name,
@@ -24,14 +25,7 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
       <div className="pokemon__profile">
         <div className="pokemon__head">
           {dream_world.front_default && (
-            <>
-              <div className={`pokemon__switch ${isBack && "on"}`}>
-                <label htmlFor={`switch-${name}`} ></label>
-                <input onClick={handleChange} type="radio" id={`switch-${name}`} hidden />
-              </div>
-
-              <h3 className={`pokemon__version ${isBack && "on"}`} >{isBack ? "Anime" : "Normal"}</h3>
-            </>
+            <Switch validator={isBack} handler={handleChange} ID={name} />
           )}
         </div>
 
