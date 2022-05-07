@@ -1,24 +1,6 @@
 .detail-carousel{
   @include detail-section;
 
-  &__guides{
-    width: 100%;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-  }
-
-  &__guide{
-    display: block;
-    width: 10px;
-    height: 10px;
-    border: 1px solid var(--primary);
-    border-radius: 50%;
-    margin: 0 5px;
-  }
-
   &__slider{
     display: none;
     align-items: center;
