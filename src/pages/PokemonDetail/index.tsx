@@ -26,7 +26,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
     
     getPokemon()
 
-  }, [])
+  }, [location.pathname])
 
   return(
     <section className="pokemon-detail">
