@@ -28,7 +28,7 @@ export const useInitialState = () => {
   const updateSearches = (payload: string) => {
     setState({
       ...state,
-      searchResults: !payload ? [] : state.results.filter(result => result.name.includes(payload))
+      searchResults: !payload ? [] : state.results.filter(result => result.name.includes(payload)).filter((item, index) => index <= 15)
     })
   }
 
