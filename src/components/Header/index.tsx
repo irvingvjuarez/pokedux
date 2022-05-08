@@ -10,7 +10,7 @@ const Header: React.FC = (): JSX.Element => {
   const [isSidebar, setIsSidebar] = useState<boolean>(false)
   const [isSearching, setIsSearching] = useState<boolean>(false)
   const handleSidebar = () => setIsSidebar(prev => !prev)
-  const handleSearch = () => setIsSearching(prev => !prev)
+  const handleSearch = () => setTimeout(() => setIsSearching(prev => !prev), isSearching ? 200 : 0)
 
   return(
     <header className="header">
