@@ -53,13 +53,17 @@ export interface IPokemon {
 export interface IState {
   pokemons: IPokemon[];
   results: IResult[];
+  searchResults: IResult[];
   offset: number;
   loading: boolean;
   error: boolean;
   api: string;
+  count: number;
 }
 
 export interface IInitialState {
   state: IState,
-  addPokemons(pokemons: IPokemon[], api: string, newResults: IResult[]): void,
+  addPokemons(pokemons: IPokemon[], api: string, newResults: IResult[], newCount?: number | undefined): void,
+  updateSearches(payload: string): void,
+  updateResults(payload: IResult[]): void
 }
