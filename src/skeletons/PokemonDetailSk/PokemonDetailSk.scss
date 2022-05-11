@@ -1,5 +1,6 @@
 .pokemon-detail-sk{
   width: 100%;
+  max-width: 900px;
   height: 80vh;
   margin-top: 10px;
   
@@ -11,7 +12,6 @@
   
   &__profile{
     padding: 9px;
-    transform: translateY(-30%);
   }
   
   &__head{
@@ -45,9 +45,9 @@
   &__circle{
     // @include skeleton;
     background: var(--static-skeleton);
-    width: 20px;
-    height: 20px;
-    margin: 5px;
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
     border-radius: 50%;
   }
 
@@ -92,7 +92,7 @@
   &__item{
     @include skeleton;
     width: 100%;
-    height: 14px;
+    height: 18px;
     border-radius: 4px;
   }
 }

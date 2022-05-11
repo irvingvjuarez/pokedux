@@ -35,7 +35,8 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
   return(
     <section className="pokemon-detail">
-      {pokemon ? (
+      <PokemonDetailSk />
+      {/* {pokemon ? (
         <div className="pokemon-detail__wrapper">
           <div className="pokemon-detail__background">
             <PokemonPicture
@@ -75,7 +76,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
         </div>
       ) : (
         <PokemonDetailSk />
-      )}
+      )} */}
     </section>
   )
 }
