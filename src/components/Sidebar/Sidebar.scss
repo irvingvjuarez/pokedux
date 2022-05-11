@@ -1,9 +1,12 @@
 .sidebar{
-  min-width: 120px;
+  min-width: 150px;
 
   ul{
+    display: flex;
+    flex-direction: column;
     list-style: none;
     position: fixed;
+    padding: 20px 0;
   }
 
   &__item{

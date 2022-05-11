@@ -4,6 +4,10 @@
   padding: 50px 12px 30px 12px;
   margin: 0 auto;
 
+  & > .sidebar{
+    display: none;
+  }
+
   &__wrapper{
     width: 100%;
     max-width: 780px;
@@ -50,5 +54,14 @@
     &__background{
       height: 200px;
     }   
+  }
+
+  @media screen and (min-width: 900px){
+    display: flex;
+    justify-content: space-evenly;
+
+    & > .sidebar{
+      display: initial;
+    }
   }
 }

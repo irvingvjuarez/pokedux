@@ -9,6 +9,7 @@ import { Carousel } from "./Carousel"
 import { Media } from "../../components/Media"
 import { Tags } from "../../components/Tags"
 import { PokemonPicture } from "../../components/PokemonPicture"
+import { Sidebar } from "../../components/Sidebar";
 
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
@@ -30,6 +31,8 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
   return(
     <section className="pokemon-detail">
+      <Sidebar />
+
       {pokemon ? (
         <div className="pokemon-detail__wrapper">
           <div className="pokemon-detail__background">
