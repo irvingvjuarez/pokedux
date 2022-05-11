@@ -6,7 +6,7 @@
     position: fixed;
   }
 
-  li{
+  &__item{
     padding: 8px 10px;
 
     a{
@@ -15,11 +15,25 @@
       font-size: 1.1rem;
       color: var(--primary);
     }
+
+    &--detail{
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      padding: 5px 0 5px 15px;
+      font-weight: 500;
+
+      span{
+        color: var(--contrast-color);
+        padding-bottom: 3px;
+        font-size: 1.2rem;
+        margin-right: 3px;
+        display: inline-block;
+      }
+    }
   }
 
   li.active{
     box-shadow: -3px 0 0px 0px var(--contrast-color);
     font-weight: bold;
-    // background-color: var(--contrast-color-bg);
   }
 }

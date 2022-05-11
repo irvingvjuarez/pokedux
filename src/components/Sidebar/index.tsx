@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import { ALL_SECTIONS } from "../../globals"
 
 const Sidebar: React.FC = (): JSX.Element => {
   const location = useLocation()
@@ -12,21 +13,19 @@ const Sidebar: React.FC = (): JSX.Element => {
   return(
     <nav className="sidebar">
       <ul>
-        <li className={`sidebar__item ${path === "/" && "active"}`}>
-          <Link to="/" >Pokemons</Link>
-        </li>
-        <li className={`sidebar__item ${path === "/items" && "active"}`}>
-          <Link to="/items" >Items</Link>
-        </li>
-        <li className={`sidebar__item ${path === "/machines" && "active"}`}>
-          <Link to="/machines" >Machines</Link>
-        </li>
-        <li className={`sidebar__item ${path === "/locations" && "active"}`}>
-          <Link to="/locations" >Locations</Link>
-        </li>
-        <li className={`sidebar__item ${path === "/moves" && "active"}`}>
-          <Link to="/moves" >Moves</Link>
-        </li>
+        {ALL_SECTIONS.map(section => (
+          <div key={section.title}>
+            <li className={`sidebar__item ${path === section.path && "active"}`}>
+              <Link to="/" >{section.title}</Link>
+            </li>
+            {path.includes(section.detail) && (
+              <h4 className="sidebar__item--detail">
+                <span>&raquo;</span>
+                Pikachu
+              </h4>
+            )}
+          </div>
+        ))}
       </ul>
     </nav>
   )
