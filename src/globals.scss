@@ -6,6 +6,7 @@
   --contrast-color: hsl(0deg 90% 50%);
   --contrast-color-bg: hsl(10deg 100% 50% / 30%);
   --grid-percent: 95%;
+  --static-skeleton: linear-gradient(25deg, rgba(250,250,250,1), rgba(200, 199, 199));
 
   @media screen and (min-width: 480px){
     --grid-percent: 100%;
@@ -109,3 +110,4 @@ body {
 @import './pages/PokemonDetail/CarouselGuides/CarouselGuides.scss';
 
 @import './skeletons/Pokemon/Pokemon.scss';
+@import './skeletons/PokemonDetailSk/PokemonDetailSk.scss';

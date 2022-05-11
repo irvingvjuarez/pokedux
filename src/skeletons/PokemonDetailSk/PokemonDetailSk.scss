@@ -1,0 +1,98 @@
+.pokemon-detail-sk{
+  width: 100%;
+  height: 80vh;
+  margin-top: 10px;
+  
+  &__cover{
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(25deg, rgba(250,250,250,1), rgba(200, 199, 199));
+  }
+  
+  &__profile{
+    padding: 9px;
+    transform: translateY(-30%);
+  }
+  
+  &__head{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  
+  &__picture{
+    @include skeleton;
+    display: grid;
+    place-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    div{
+      width: 46px;
+      height: 46px;
+      border-radius: inherit;
+      background-color: white;
+    }
+  }
+
+  &__media{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__circle{
+    // @include skeleton;
+    background: var(--static-skeleton);
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 50%;
+  }
+
+  &__name{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title{
+    width: 150px;
+    height: 13px;
+    border-radius: 6px;
+    background: var(--static-skeleton);
+  }
+
+  &__section{
+    padding: 9px;
+  }
+
+  &__list ul{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    li{
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+    }
+  }
+
+  &__bullet{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--static-skeleton);
+    margin-right: 5px;
+  }
+
+  &__item{
+    @include skeleton;
+    width: 100%;
+    height: 14px;
+    border-radius: 4px;
+  }
+}

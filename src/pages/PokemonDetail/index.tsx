@@ -1,15 +1,19 @@
 import { useContext, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
+
 import { AppContext } from "../../context/AppContext"
 import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
+
 import { IPokemon } from "../../types"
 import { Section } from "./Section"
 import { Carousel } from "./Carousel"
+
 import { Media } from "../../components/Media"
 import { Tags } from "../../components/Tags"
 import { PokemonPicture } from "../../components/PokemonPicture"
 import { Sidebar } from "../../components/Sidebar";
+import { PokemonDetailSk } from "../../skeletons/PokemonDetailSk";
 
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
@@ -31,8 +35,6 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
   return(
     <section className="pokemon-detail">
-      <Sidebar />
-
       {pokemon ? (
         <div className="pokemon-detail__wrapper">
           <div className="pokemon-detail__background">
@@ -72,7 +74,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
           <Section title="Movements" list={pokemon.moves} />
         </div>
       ) : (
-        <h2>Loading...</h2>
+        <PokemonDetailSk />
       )}
     </section>
   )
