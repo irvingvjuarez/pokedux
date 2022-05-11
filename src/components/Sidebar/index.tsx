@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { ALL_SECTIONS } from "../../globals"
+import { doesMatch } from "./utils";
 
 const Sidebar: React.FC = (): JSX.Element => {
   const location = useLocation()
@@ -15,7 +16,7 @@ const Sidebar: React.FC = (): JSX.Element => {
       <ul>
         {ALL_SECTIONS.map(section => (
           <div key={section.title}>
-            <li className={`sidebar__item ${path === section.path && "active"}`}>
+            <li className={`sidebar__item ${doesMatch(path, section) && "active"}`}>
               <Link to="/" >{section.title}</Link>
             </li>
             {path.includes(section.detail) && (

@@ -11,6 +11,12 @@ export interface IPokemonTypes {
   }
 }
 
+export interface IPageSection {
+  path: string;
+  title: string;
+  detail: string;
+}
+
 export interface IGenericItem {
   key: string,
   value: number | string[]
