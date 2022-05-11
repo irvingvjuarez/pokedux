@@ -16,10 +16,22 @@ const setGenericList = (list: any[], isStat: boolean = false): IGenericItem[] =>
     return genericItem
   })
 
-  return list.map(item => ({
-    key: item.move.name,
-    value: item.move.url.match(/\/\w+\/\w+\/$/i)
-  }))
+  let property: string;
+
+  return list.map(item => {
+    if(!property){
+      for(let prop of Object.keys(item)){
+        if(typeof item[prop] === "object" && Array.isArray(item[prop]) === false){
+          property = prop
+        }
+      }
+    }
+
+    return ({
+      key: item[property].name,
+      value: item[property].url.match(/\/\w+\/\w+\/$/i)
+    })
+  })
 }
 
 export { setGenericList }

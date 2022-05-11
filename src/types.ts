@@ -1,4 +1,11 @@
-export type IList = IStat[] | IGenericItem[] | IMove[]
+export type IList = IStat[] | IGenericItem[] | IMove[] | IAbility[]
+
+export interface IAbility {
+  ability: {
+    name: string;
+    url: string;
+  }
+}
 
 export interface IResult {
   name: string;
@@ -53,7 +60,8 @@ export interface IPokemon {
   height: number,
   weight: number,
   stats: IStat[],
-  moves: IMove[]
+  moves: IMove[],
+  abilities: IAbility[],
 }
 
 export interface IState {

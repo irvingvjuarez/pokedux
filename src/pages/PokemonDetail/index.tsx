@@ -35,8 +35,9 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
   return(
     <section className="pokemon-detail">
-      <PokemonDetailSk />
-      {/* {pokemon ? (
+      <Sidebar />
+
+      {pokemon ? (
         <div className="pokemon-detail__wrapper">
           <div className="pokemon-detail__background">
             <PokemonPicture
@@ -71,12 +72,12 @@ const PokemonDetail: React.FC = (): JSX.Element => {
           />
 
           <Carousel title="Photos" imagesList={pokemon.sprites} />
-
+          <Section title="Abilities" list={pokemon.abilities} />
           <Section title="Movements" list={pokemon.moves} />
         </div>
       ) : (
         <PokemonDetailSk />
-      )} */}
+      )}
     </section>
   )
 }
