@@ -1,3 +1,4 @@
+import { Carousel } from "../../components/Carousel"
 import { ISprites } from "../../types"
 import { getNewAlbum } from "./utils"
 
@@ -7,11 +8,15 @@ interface PhotosProps {
 
 const Photos: React.FC<PhotosProps> = ({ album }): JSX.Element => {
   const newAlbum = getNewAlbum(album)
-  console.log(newAlbum)
 
   return(
     <section className="photos">
-      <h2>I am the Photos container!!</h2>
+      {Object.keys(newAlbum).map(obj => (
+        <Carousel
+          key={obj}
+          title={obj}
+          imagesList={newAlbum[obj as keyof object]} />
+      ))}
     </section>
   )
 }

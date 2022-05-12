@@ -17,3 +17,7 @@ export const getMainPhotos = (photoObj: object) => {
 
   return newObj
 }
+
+export const cleanTitle = (title: string) => {
+  return title.replace(/(\_|\-)/, " ")
+}

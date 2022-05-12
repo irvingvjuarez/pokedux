@@ -47,6 +47,10 @@
     align-items: center;
     justify-content: space-between;
 
+    h2{
+      text-transform: capitalize;
+    }
+
     a{
       text-transform: uppercase;
       font-size: 0.8rem;

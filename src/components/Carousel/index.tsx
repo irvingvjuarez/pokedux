@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState, useRef, useEffect } from "react";
-import { getMainPhotos } from "./utils"
+import { getMainPhotos, cleanTitle } from "./utils"
 import { CarouselProps } from "./types"
 import { CarouselGuides } from "../CarouselGuides"
 
@@ -38,16 +38,16 @@ const Carousel: React.FC<CarouselProps> = ({ title, imagesList, url }): JSX.Elem
   return(
     <section className="detail-carousel">
       <div className="detail-carousel__head">
-        <h2>{title}</h2>
+        <h2>{cleanTitle(title)}</h2>
 
-        <Link to={`${url ?? ""}`}>
-          See all
-        </Link>
+        {url && (
+          <Link to={url}>See all</Link>
+        )}
       </div>
 
       <div className="detail-carousel__container">
-        <div className="detail-carousel__slider" onClick={handleLeft}>
-          <button>&laquo;</button>
+        <div className="detail-carousel__slider">
+          <button onClick={handleLeft}>&laquo;</button>
         </div>
 
         <ul
@@ -57,7 +57,7 @@ const Carousel: React.FC<CarouselProps> = ({ title, imagesList, url }): JSX.Elem
 
           {photosArr.map(photo => (
             <li key={photo.url}>
-              <img src={photo.url} alt={photo.title} />
+              <img src={photo.url} alt={photo.title} min-height={250} min-width={250} />
             </li>
           ))}
         </ul>

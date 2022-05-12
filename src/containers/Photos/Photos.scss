@@ -1,3 +1,10 @@
 .photos{
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+
+  & > * {
+    padding-top: 0;
+  }
 }
