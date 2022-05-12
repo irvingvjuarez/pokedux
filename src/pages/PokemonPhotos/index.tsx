@@ -20,7 +20,6 @@ const PokemonPhotos: React.FC = (): JSX.Element => {
     async function search4Pokemon(){
       const aspirantToPokemon = pokemons.find(pokemon => pokemon.name === pokemonName) || await useFetchPokemon(pokemonName as string)
       setPokemon(aspirantToPokemon)
-      console.log(pokemon?.sprites)
     }
 
     search4Pokemon()
@@ -31,7 +30,7 @@ const PokemonPhotos: React.FC = (): JSX.Element => {
       <Sidebar />
 
       {pokemon ? (
-        <Photos />
+        <Photos album={pokemon.sprites} />
       ) : (
         <span>Loading...</span>
       )}

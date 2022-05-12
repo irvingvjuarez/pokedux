@@ -43,18 +43,20 @@ export interface IStat {
   }
 }
 
+export interface ISprites {
+  front_default: string;
+  back_default: string;
+  other: {
+    dream_world: {
+      front_default: string
+    }
+  }
+}
+
 export interface IPokemon {
   name: string;
   id: number;
-  sprites: {
-    front_default: string;
-    back_default: string;
-    other: {
-      dream_world: {
-        front_default: string
-      }
-    }
-  },
+  sprites: ISprites,
   types: IPokemonTypes[],
   base_experience: number,
   height: number,
