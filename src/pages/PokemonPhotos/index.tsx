@@ -1,10 +1,14 @@
 import { useContext, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { Sidebar } from "../../components/Sidebar"
+
 import { AppContext } from "../../context/AppContext"
+import { IInitialState, IPokemon } from "../../types"
+
 import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
-import { IInitialState, IPokemon } from "../../types"
+
+import { Sidebar } from "../../components/Sidebar"
+import { Photos } from "../../containers/Photos"
 
 const PokemonPhotos: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
@@ -16,6 +20,7 @@ const PokemonPhotos: React.FC = (): JSX.Element => {
     async function search4Pokemon(){
       const aspirantToPokemon = pokemons.find(pokemon => pokemon.name === pokemonName) || await useFetchPokemon(pokemonName as string)
       setPokemon(aspirantToPokemon)
+      console.log(pokemon?.sprites)
     }
 
     search4Pokemon()
@@ -26,7 +31,7 @@ const PokemonPhotos: React.FC = (): JSX.Element => {
       <Sidebar />
 
       {pokemon ? (
-        <h2>We have pokemon!!</h2>
+        <Photos />
       ) : (
         <span>Loading...</span>
       )}
