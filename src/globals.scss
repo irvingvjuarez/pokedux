@@ -119,14 +119,14 @@ body {
 @import './components/Sidebar/Sidebar.scss';
 @import './components/Switch/Switch.scss';
 @import './components/SearchField/SearchField.scss';
+@import './components/Carousel/Carousel.scss';
+@import './components/CarouselGuides/CarouselGuides.scss';
 
 @import './containers/Pokemons/Pokemons.scss';
 
 @import './pages/Home/Home.scss';
 @import './pages/PokemonDetail/PokemonDetail.scss';
 @import './pages/PokemonDetail/Section/Section.scss';
-@import './pages/PokemonDetail/Carousel/Carousel.scss';
-@import './pages/PokemonDetail/CarouselGuides/CarouselGuides.scss';
 @import './pages/PokemonPhotos/PokemonPhotos.scss';
 
 @import './skeletons/Pokemon/Pokemon.scss';

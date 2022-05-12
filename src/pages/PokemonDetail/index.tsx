@@ -7,8 +7,8 @@ import { usePathName } from "../../hooks/usePathName"
 
 import { IPokemon } from "../../types"
 import { Section } from "./Section"
-import { Carousel } from "./Carousel"
 
+import { Carousel } from "../../components/Carousel"
 import { Media } from "../../components/Media"
 import { Tags } from "../../components/Tags"
 import { PokemonPicture } from "../../components/PokemonPicture"
