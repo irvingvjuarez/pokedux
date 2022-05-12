@@ -3,7 +3,7 @@ import { Sidebar } from "../../components/Sidebar"
 
 const Home: React.FC = (): JSX.Element => {
   return(
-    <section className="home">
+    <section className="home page">
       <Sidebar />
       <Pokemons />
     </section>

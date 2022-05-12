@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Home } from "../pages/Home";
 import { PokemonDetail } from "../pages/PokemonDetail";
+import { PokemonPhotos } from "../pages/PokemonPhotos";
 
 import { useInitialState } from "../hooks/useInitialState"
 import { AppContext } from "../context/AppContext"
@@ -17,6 +18,7 @@ const App: React.FC = (): JSX.Element => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pokemon/:name" element={<PokemonDetail />} />
+            <Route path="/pokemon/:name/photos" element={<PokemonPhotos />}/>
           </Routes>
         </Layout>
       </AppContext.Provider>

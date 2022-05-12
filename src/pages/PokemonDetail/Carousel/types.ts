@@ -1,6 +1,7 @@
 export interface CarouselProps {
   title: string;
   imagesList: object;
+  url?: string;
 }
 
 export interface ICarouselGuides {

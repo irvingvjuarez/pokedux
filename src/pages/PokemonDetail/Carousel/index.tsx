@@ -8,7 +8,7 @@ let leftScroll: number
 let behaviorScroll: ScrollBehavior | undefined
 const SLIDE_SIZE = 380
 
-const Carousel: React.FC<CarouselProps> = ({ title, imagesList }): JSX.Element => {
+const Carousel: React.FC<CarouselProps> = ({ title, imagesList, url }): JSX.Element => {
   const photosArr = getMainPhotos(imagesList)
   const sliderRef = useRef<HTMLUListElement | null>(null)
   const [slide, setSlide] = useState<number>(0)
@@ -40,7 +40,7 @@ const Carousel: React.FC<CarouselProps> = ({ title, imagesList }): JSX.Element =
       <div className="detail-carousel__head">
         <h2>{title}</h2>
 
-        <Link to="">
+        <Link to={`${url ?? ""}`}>
           See all
         </Link>
       </div>

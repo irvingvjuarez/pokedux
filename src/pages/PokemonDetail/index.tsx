@@ -71,7 +71,10 @@ const PokemonDetail: React.FC = (): JSX.Element => {
             isStat={true}
           />
 
-          <Carousel title="Photos" imagesList={pokemon.sprites} />
+          <Carousel
+            title="Photos"
+            imagesList={pokemon.sprites}
+            url={`/pokemon/${pokemon.name}/photos`} />
           <Section title="Abilities" list={pokemon.abilities} />
           <Section title="Movements" list={pokemon.moves} />
         </div>
