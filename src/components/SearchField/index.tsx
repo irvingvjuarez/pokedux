@@ -22,6 +22,7 @@ const SearchField: React.FC<SearchFieldProps> = ({ focus, blurHandler }): JSX.El
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => updateSearches(e.target.value.toLowerCase())
   const handleBlur = () => {
     blurHandler && blurHandler()
+    handleNavigation()
     setTimeout(() => {
       setIsActive(prev => !prev)
       updateSearches("")
