@@ -2,7 +2,6 @@ import { IInitialState, IResult, } from "../types"
 
 export const fetchItems = (initialState: IInitialState) => {
   const { state:{api, count}, addPokemons } = initialState
-  let newCount: undefined
   let newApi: string
   let newResults: IResult[]
 
@@ -15,7 +14,6 @@ export const fetchItems = (initialState: IInitialState) => {
         )
         newApi = data.next
         newResults = data.results
-        newCount = !count ? data.count : undefined
         return Promise.all(requests)
       })
       .then(promises => {
@@ -23,7 +21,7 @@ export const fetchItems = (initialState: IInitialState) => {
         return Promise.all(solvedPromises)
       })
       .then(results => {
-        addPokemons(results, newApi, newResults, newCount)
+        addPokemons(results, newApi, newResults)
       })
   }
 }

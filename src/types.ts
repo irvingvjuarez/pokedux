@@ -79,7 +79,7 @@ export interface IState {
 
 export interface IInitialState {
   state: IState,
-  addPokemons(pokemons: IPokemon[], api: string, newResults: IResult[], newCount?: number | undefined): void,
+  addPokemons(pokemons: IPokemon[], api: string, newResults: IResult[]): void,
   updateSearches(payload: string): void,
   updateResults(payload: IResult[]): void
 }
