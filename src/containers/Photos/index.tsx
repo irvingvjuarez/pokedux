@@ -1,4 +1,4 @@
-import { Carousel } from "../../components/Carousel"
+import { Album } from "../../components/Album"
 import { ISprites } from "../../types"
 import { getNewAlbum } from "./utils"
 
@@ -11,14 +11,20 @@ const Photos: React.FC<PhotosProps> = ({ album }): JSX.Element => {
 
   return(
     <section className="photos">
-      {Object.keys(newAlbum).map(obj => (
-        <Carousel
-          key={obj}
-          title={obj}
-          imagesList={newAlbum[obj as keyof object]} />
-      ))}
+      {Object.keys(newAlbum).map(album => (
+        <Album
+          key={album}
+          title={album}
+          imagesList={newAlbum[album as keyof object]} />
+          ))}
     </section>
   )
 }
 
 export { Photos }
+
+
+// <Carousel
+//   key={obj}
+//   title={obj}
+//   imagesList={newAlbum[obj as keyof object]} />

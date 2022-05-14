@@ -20,15 +20,15 @@ const SearchField: React.FC<SearchFieldProps> = ({ focus, blurHandler }): JSX.El
     setIsActive(prev => !prev)
   }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => updateSearches(e.target.value.toLowerCase())
+  const cleanInput = () => (inputRef.current as HTMLInputElement).value = ""
   const handleBlur = () => {
     blurHandler && blurHandler()
-    handleNavigation()
+    cleanInput()
     setTimeout(() => {
       setIsActive(prev => !prev)
       updateSearches("")
     }, 200)
   }
-  const handleNavigation = () => (inputRef.current as HTMLInputElement).value = ""
 
   return(
     <form autoComplete="off" className={`search-field ${isActive && "active"}`}>
@@ -49,7 +49,7 @@ const SearchField: React.FC<SearchFieldProps> = ({ focus, blurHandler }): JSX.El
       {isActive && (
         <ul className="search-field__dropdown">
           {state.searchResults.map(result => (
-            <li key={result.name} onClick={handleNavigation}>
+            <li key={result.name} onClick={cleanInput}>
               <Link to={`/pokemon/${result.name}`}>{result.name}</Link>
             </li>
           ))}
