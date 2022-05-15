@@ -1,5 +1,7 @@
 .dropdown{
-  flex-direction: column;
+  &__list{
+    flex-direction: column;
+  }
 
   &__item{
     text-transform: capitalize;
@@ -8,10 +10,13 @@
     justify-content: space-between;
     padding: 12px 9px;
     border-bottom: 1px solid rgba(0,0,0,0.25);
-
+    
     a{
       text-decoration: none;
       color: rgba(0,0,0,0.75);
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
 

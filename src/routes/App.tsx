@@ -3,13 +3,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from "../pages/Home";
 import { PokemonDetail } from "../pages/PokemonDetail";
 import { PokemonPhotos } from "../pages/PokemonPhotos";
+import { Ability } from "../pages/Ability";
+import { Layout } from "../containers/Layout"
 
 import { useInitialState } from "../hooks/useInitialState"
 import { AppContext } from "../context/AppContext"
-import { Layout } from "../containers/Layout"
+import { IInitialState } from '../types';
 
 const App: React.FC = (): JSX.Element => {
-  const initialState = useInitialState()
+  const initialState = useInitialState() as IInitialState
 
   return(
     <BrowserRouter>
@@ -19,6 +21,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path="/" element={<Home />} />
             <Route path="/pokemon/:name" element={<PokemonDetail />} />
             <Route path="/pokemon/:name/photos" element={<PokemonPhotos />}/>
+            <Route path="/ability/:id/" element={<Ability />}/>
           </Routes>
         </Layout>
       </AppContext.Provider>

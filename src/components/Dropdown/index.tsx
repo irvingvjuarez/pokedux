@@ -12,8 +12,8 @@ const Dropdown: React.FC<DropdownProps> = ({ list, isStat }): JSX.Element => {
   const handleToggle = () => setIsDown(prev => !prev)
 
   return(
-    <>
-      <ul className="dropdown">
+    <div className="dropdown">
+      <ul className="dropdown__list">
         {renderedList.map(item => (
           <li className="dropdown__item" key={item.key}>
             {item.key}
@@ -34,7 +34,7 @@ const Dropdown: React.FC<DropdownProps> = ({ list, isStat }): JSX.Element => {
           {isDown ? "Hide" : `See ${list.length - LIST_LIMIT} more`}
         </button>
       )}
-    </>
+    </div>
   )
 }
 
