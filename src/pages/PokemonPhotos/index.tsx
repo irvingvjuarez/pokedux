@@ -8,6 +8,7 @@ import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
 
 import { Sidebar } from "../../components/Sidebar"
+import { ReturnBar } from "../../components/ReturnBar"
 import { Photos } from "../../containers/Photos"
 
 const PokemonPhotos: React.FC = (): JSX.Element => {
@@ -29,11 +30,15 @@ const PokemonPhotos: React.FC = (): JSX.Element => {
     <section className="page pokemon-photos">
       <Sidebar />
 
-      {pokemon ? (
-        <Photos album={pokemon.sprites} />
-      ) : (
-        <span>Loading...</span>
-      )}
+      <article className="pokemon-photos__wrapper">
+        <ReturnBar />
+
+        {pokemon ? (
+          <Photos album={pokemon.sprites} />
+        ) : (
+          <span>Loading...</span>
+        )}
+      </article>
     </section>
   )
 }
