@@ -1,9 +1,6 @@
-interface IPhoto {
-  title: string;
-  url: string;
-}
+import { IPhoto } from "../types"
 
-export const getMainPhotos = (photoObj: object) => {
+export const getImagesArr = (photoObj: object) => {
   const newObj: IPhoto[] = []
 
   for(let photo of Object.keys(photoObj)){
@@ -16,8 +13,4 @@ export const getMainPhotos = (photoObj: object) => {
   }
 
   return newObj
-}
-
-export const cleanTitle = (title: string) => {
-  return title.replace(/(\_|\-)/, " ")
 }

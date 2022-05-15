@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom"
 import { useState, useRef, useEffect } from "react";
-import { getMainPhotos, cleanTitle } from "./utils"
+import { getImagesArr } from "../../utils/getImagesArr"
 import { CarouselProps } from "./types"
+import { cleanTitle } from "../../utils/cleanTitle";
+
 import { CarouselGuides } from "../CarouselGuides"
 
 let leftScroll: number
@@ -9,7 +11,7 @@ let behaviorScroll: ScrollBehavior | undefined
 const SLIDE_SIZE = 380
 
 const Carousel: React.FC<CarouselProps> = ({ title, imagesList, url }): JSX.Element => {
-  const photosArr = getMainPhotos(imagesList)
+  const photosArr = getImagesArr(imagesList)
   const sliderRef = useRef<HTMLUListElement | null>(null)
   const [slide, setSlide] = useState<number>(0)
   const handleRight = () =>{

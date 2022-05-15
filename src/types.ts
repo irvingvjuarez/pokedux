@@ -12,6 +12,11 @@ export interface IResult {
   url: string;
 }
 
+export interface IPhoto {
+  title: string;
+  url: string;
+}
+
 export interface IPokemonTypes {
   type: {
     name: string
