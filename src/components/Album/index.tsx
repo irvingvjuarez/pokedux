@@ -8,7 +8,6 @@ interface AlbumProps {
 
 const Album: React.FC<AlbumProps> = ({ title, imagesList }): JSX.Element => {
   const photosArr = getImagesArr(imagesList)
-  console.log(photosArr)
 
   return(
     <article className="album">
@@ -17,7 +16,11 @@ const Album: React.FC<AlbumProps> = ({ title, imagesList }): JSX.Element => {
       </h2>
 
       <div className="album__content">
-        <span>Content...</span>
+        {photosArr.map(photo => (
+          <div key={photo.title} className="album__photo">
+            <img src={photo.url} alt={photo.title} />
+          </div>
+        ))}
       </div>
     </article>
   )

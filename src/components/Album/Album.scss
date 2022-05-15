@@ -1,5 +1,20 @@
 .album{
   &__title{
     text-transform: capitalize;
+    margin-bottom: 15px;
+  }
+
+  &__content{
+    @include standard-grid;
+  }
+
+  &__photo{
+    border: 1px solid var(--primary);
+    // box-shadow: var(--shadow);
+    // border-radius: 9px;
+
+    img{
+      width: 100%;
+    }
   }
 }
