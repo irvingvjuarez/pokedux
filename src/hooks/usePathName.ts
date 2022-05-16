@@ -1,4 +1,4 @@
-const regex = new RegExp(/pokemon\/[a-z]+/i)
+const regex = new RegExp(/pokemon\/([a-z]+|\d)/i)
 
 const usePathName = (location: any) => {
   let pokemonName = null

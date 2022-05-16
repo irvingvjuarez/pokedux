@@ -18,14 +18,14 @@ import { PokemonDetailSk } from "../../skeletons/PokemonDetailSk";
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
   const location = useLocation()
-  const pokemonName = usePathName(location)
+  const pokemonID = usePathName(location)
   const state = useContext(AppContext)
 
   useEffect(() => {
     async function getPokemon(){
       let aspirantToPokemon
-      aspirantToPokemon = state?.state.pokemons.find(item => item.name === pokemonName) as IPokemon
-      if(!aspirantToPokemon) aspirantToPokemon = await useFetchPokemon(pokemonName as string)
+      aspirantToPokemon = state?.state.pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
+      if(!aspirantToPokemon) aspirantToPokemon = await useFetchPokemon(pokemonID as string)
       setPokemon(aspirantToPokemon)
     }
     
