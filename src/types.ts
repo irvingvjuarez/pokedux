@@ -1,10 +1,32 @@
-export type IList = IStat[] | IGenericItem[] | IMove[] | IAbility[]
+export type IList = IStat[] | IGenericItem[] | IMove[] | IAbilityRef[]
 
-export interface IAbility {
+export interface IAbilityRef {
   ability: {
     name: string;
     url: string;
   }
+}
+
+export interface IEffect {
+  effect: string;
+  short_effect: string;
+  language: {
+    name: string
+  }
+}
+
+export interface IPokemonRef {
+  pokemon: {
+    name: string;
+    url: string;
+  }
+}
+
+export interface IAbility {
+  effect_entries: IEffect[];
+  pokemon: IPokemonRef[];
+  id: number;
+  name: string;
 }
 
 export interface IResult {
@@ -68,7 +90,7 @@ export interface IPokemon {
   weight: number,
   stats: IStat[],
   moves: IMove[],
-  abilities: IAbility[],
+  abilities: IAbilityRef[],
 }
 
 export interface IState {
@@ -80,11 +102,13 @@ export interface IState {
   error: boolean;
   api: string;
   count: number;
+  abilities: IAbility[];
 }
 
 export interface IInitialState {
   state: IState,
   addPokemons(pokemons: IPokemon[], api: string, newResults: IResult[]): void,
   updateSearches(payload: string): void,
-  updateResults(payload: IResult[]): void
+  updateResults(payload: IResult[]): void,
+  addAbility(payload: IAbility): void
 }

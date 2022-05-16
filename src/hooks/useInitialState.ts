@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { API, LIMIT } from "../globals"
-import { IPokemon, IResult, IState } from "../types"
+import { IAbility, IPokemon, IResult, IState } from "../types"
 
 export const useInitialState = () => {
   const [state, setState] = useState<IState>({
@@ -11,7 +11,8 @@ export const useInitialState = () => {
     loading: true,
     error: false,
     api: API + "?limit=" + LIMIT,
-    count: 100000
+    count: 100000,
+    abilities: []
   })
   
   const addPokemons = (payload: IPokemon[], api: string, newResults: IResult[], newCount: number | undefined) => {
@@ -39,10 +40,18 @@ export const useInitialState = () => {
     })
   }
 
+  const addAbility = (payload: IAbility) => {
+    setState({
+      ...state,
+      abilities: [...state.abilities, payload]
+    })
+  }
+
   return {
     state,
     addPokemons,
     updateSearches,
-    updateResults
+    updateResults,
+    addAbility
   }
 }
