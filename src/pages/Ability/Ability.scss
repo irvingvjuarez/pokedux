@@ -16,9 +16,10 @@
   &__effect {
     border: 1px solid var(--primary);
     padding: 9px;
+    margin-bottom: 10px;
 
     &--title, &--subtitle{
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.5px;
       margin-bottom: 5px;
       font-size: 1.3rem;

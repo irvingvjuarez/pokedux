@@ -7,7 +7,7 @@ import { fetchAbility } from "./utils"
 import { getId } from "../../utils/getId"
 
 import { ReturnBar } from "../../components/ReturnBar"
-import { Dropdown } from "../../components/Dropdown"
+import { Section } from "../../components/Section"
 
 const Ability: React.FC = (): JSX.Element => {
   const location = useLocation()
@@ -46,7 +46,7 @@ const Ability: React.FC = (): JSX.Element => {
               <p className="ability__effect--short-effect">{effect && effect.short_effect}</p>
             </div>
 
-            <Dropdown list={ability.pokemon} />
+            <Section title="Pokemons with this ability" list={ability.pokemon} />
           </>
         ) : (
           <span>Loading...</span>
