@@ -12,7 +12,8 @@ export const useInitialState = () => {
     error: false,
     api: API + "?limit=" + LIMIT,
     count: 100000,
-    abilities: []
+    abilities: [],
+    moves: []
   })
   
   const addPokemons = (payload: IPokemon[], api: string, newResults: IResult[], newCount: number | undefined) => {

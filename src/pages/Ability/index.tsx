@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom"
 import { AppContext } from "../../context/AppContext"
 import { IAbility, IEffect, IInitialState } from "../../types"
 
-import { fetchAbility } from "./utils"
+import { fetchFeature } from "../../utils/fetchFeature"
 import { getId } from "../../utils/getId"
 
 import { ReturnBar } from "../../components/ReturnBar"
@@ -19,7 +19,7 @@ const Ability: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     const abilityProspect = abilities.find(ability => ability.id === Number(id))
-    if(!abilityProspect) fetchAbility(id, addAbility)
+    if(!abilityProspect) fetchFeature(id, "ability", addAbility)
     if(abilityProspect) {
       const tempEffect = abilityProspect.effect_entries.find(entry => entry.language.name === "en") as IEffect
       setEffect(tempEffect)
