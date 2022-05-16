@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { ReturnBar } from "../../components/ReturnBar"
 import { AppContext } from "../../context/AppContext"
 import { IAbility, IEffect, IInitialState } from "../../types"
 
 import { fetchAbility } from "./utils"
 import { getId } from "../../utils/getId"
+
+import { ReturnBar } from "../../components/ReturnBar"
+import { Dropdown } from "../../components/Dropdown"
 
 const Ability: React.FC = (): JSX.Element => {
   const location = useLocation()
@@ -43,6 +45,8 @@ const Ability: React.FC = (): JSX.Element => {
               <h4 className="ability__effect--subtitle">Short Effect</h4>
               <p className="ability__effect--short-effect">{effect && effect.short_effect}</p>
             </div>
+
+            <Dropdown list={ability.pokemon} />
           </>
         ) : (
           <span>Loading...</span>

@@ -1,4 +1,4 @@
-export type IList = IStat[] | IGenericItem[] | IMove[] | IAbilityRef[]
+export type IList = IStat[] | IGenericItem[] | IMove[] | IAbilityRef[] | IPokemonRef[]
 
 export interface IAbilityRef {
   ability: {
