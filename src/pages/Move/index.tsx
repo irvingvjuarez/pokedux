@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { ReturnBar } from "../../components/ReturnBar"
 import { AppContext } from "../../context/AppContext"
-import { IInitialState, IMove } from "../../types"
+import { IInitialState, IListItem, IMove, IPokemonRef } from "../../types"
 import { fetchFeature } from "../../utils/fetchFeature"
 import { getId } from "../../utils/getId"
+import { arrangeListItems } from "./utils"
+
+import { ReturnBar } from "../../components/ReturnBar"
+import { Section } from "../../components/Section"
 
 const Move: React.FC = (): JSX.Element => {
   const { pathname } = useLocation()
@@ -15,7 +18,33 @@ const Move: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     const prospectToMove = moves.find(move => move.id === Number(moveID))
-    if(prospectToMove) setMove(prospectToMove)
+    if(prospectToMove) {
+      
+      /**
+       If we already have the Move on the Global State, then, we need to arrange those items. Why?
+       The format given by the API is:
+       {
+         name: string,
+         url: string
+       }
+
+       But the format to work on the Section component is:
+       {
+         item: {
+           name: string,
+           url: string
+         }
+       }
+
+       So, the arrangeListItems does that transformation
+      */
+
+      const newPokemonArr = arrangeListItems(prospectToMove.learned_by_pokemon as IListItem[], "pokemon")
+      setMove({
+        ...prospectToMove,
+        learned_by_pokemon: newPokemonArr as unknown as IPokemonRef[]
+      })
+    }
     if(!prospectToMove) fetchFeature(moveID, "move", addMove)
   }, [moves])
 
@@ -24,7 +53,9 @@ const Move: React.FC = (): JSX.Element => {
       <article className="move__wrapper">
         <ReturnBar />
         {move ? (
-          <h2>We have move</h2>
+          <>
+            <Section title="Learned by pokemons" list={move.learned_by_pokemon} />
+          </>
         ) : (
           <span>Loading...</span>
         )}

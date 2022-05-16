@@ -1,4 +1,4 @@
-export type IList = IStat[] | IGenericItem[] | IMoveRef[] | IAbilityRef[] | IPokemonRef[]
+export type IList = IStat[] | IGenericItem[] | IMoveRef[] | IAbilityRef[] | IPokemonRef[] | IListItem[]
 
 export interface IAbilityRef {
   ability: {
@@ -63,6 +63,11 @@ export interface IMoveRef{
   }
 }
 
+export interface IListItem {
+  name: string;
+  url: string;
+}
+
 export interface IMove {
   accuracy: number;
   name: string;
@@ -70,7 +75,7 @@ export interface IMove {
   power: number;
   pp: number;
   priority: number;
-  learned_by_pokemon: IPokemonRef[];
+  learned_by_pokemon: IListItem[] | IPokemonRef[];
 }
 
 export interface IStat {
