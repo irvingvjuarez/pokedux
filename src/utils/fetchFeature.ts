@@ -1,10 +1,10 @@
 import { API } from "../globals"
-import { IAbility } from "../types"
+import { IAbility, IMove } from "../types"
 
 export const fetchFeature = (
   featureID: string,
   featureName: string,
-  callback: (payload: IAbility) => void
+  callback: (payload: any) => void
 ) => {
   const currentAPI = API.replace("pokemon", `${featureName}/`) + featureID
   fetch(currentAPI)

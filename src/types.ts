@@ -121,5 +121,6 @@ export interface IInitialState {
   addPokemons(pokemons: IPokemon[], api: string, newResults: IResult[]): void,
   updateSearches(payload: string): void,
   updateResults(payload: IResult[]): void,
-  addAbility(payload: IAbility): void
+  addAbility(payload: IAbility): void,
+  addMove(payload: IMove): void
 }

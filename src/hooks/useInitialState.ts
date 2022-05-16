@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { API, LIMIT } from "../globals"
-import { IAbility, IPokemon, IResult, IState } from "../types"
+import { IAbility, IMove, IPokemon, IResult, IState } from "../types"
 
 export const useInitialState = () => {
   const [state, setState] = useState<IState>({
@@ -48,11 +48,19 @@ export const useInitialState = () => {
     })
   }
 
+  const addMove = (payload: IMove) => {
+    setState({
+      ...state,
+      moves: [...state.moves, payload]
+    })
+  }
+
   return {
     state,
     addPokemons,
     updateSearches,
     updateResults,
-    addAbility
+    addAbility,
+    addMove
   }
 }
