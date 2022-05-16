@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import { AppContext } from "../../context/AppContext";
 import { ALL_SECTIONS } from "../../globals"
+import { IInitialState } from "../../types";
 import { doesMatch, getMatch } from "./utils";
 
 const Sidebar: React.FC = (): JSX.Element => {
   const location = useLocation()
+  const { state:{pokemons} } = useContext(AppContext) as IInitialState
+
   const [path, setPath] = useState(location.pathname)
 
   useEffect(() => {
@@ -15,7 +19,8 @@ const Sidebar: React.FC = (): JSX.Element => {
     <nav className="sidebar">
       <ul>
         {ALL_SECTIONS.map(section => {
-          const detailMatch = getMatch(path, section);
+          const detailMatch = getMatch(path, section, pokemons);
+
           return(
             <div key={section.title}>
               <li className={`sidebar__item ${doesMatch(path, section) && "active"}`}>
