@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { ReturnBar } from "../../components/ReturnBar"
 import { AppContext } from "../../context/AppContext"
-import { IAbility, IInitialState } from "../../types"
+import { IAbility, IEffect, IInitialState } from "../../types"
 
 import { fetchAbility } from "./utils"
 import { getId } from "../../utils/getId"
@@ -13,13 +13,15 @@ const Ability: React.FC = (): JSX.Element => {
   const { state:{abilities}, addAbility } = useContext(AppContext) as IInitialState
 
   const [ability, setAbility] = useState<IAbility | null>(null)
+  const [effect, setEffect] = useState<IEffect | undefined>(undefined)
 
   useEffect(() => {
     const abilityProspect = abilities.find(ability => ability.id === Number(id))
-    if(abilityProspect){
+    if(!abilityProspect) fetchAbility(id, addAbility)
+    if(abilityProspect) {
+      const tempEffect = abilityProspect.effect_entries.find(entry => entry.language.name === "en") as IEffect
+      setEffect(tempEffect)
       setAbility(abilityProspect)
-    }else{
-      fetchAbility(id, addAbility)
     }
   }, [abilities])
 
@@ -30,7 +32,18 @@ const Ability: React.FC = (): JSX.Element => {
         <ReturnBar />
 
         {ability ? (
-          <h2>We have ability</h2>
+          <>
+            <h2 className="ability__title">Ability: <code>{ability.name}</code></h2>
+
+            <div className="ability__effect">
+              <h3 className="ability__effect--title">Effect</h3>
+              <p className="ability__effect--effect">{effect && effect.effect}</p>
+
+              <hr />
+              <h4 className="ability__effect--subtitle">Short Effect</h4>
+              <p className="ability__effect--short-effect">{effect && effect.short_effect}</p>
+            </div>
+          </>
         ) : (
           <span>Loading...</span>
         )}

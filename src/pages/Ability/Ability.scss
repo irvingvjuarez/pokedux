@@ -1,7 +1,37 @@
 .ability{
-  &__wrapper{
+  &__wrapper {
     margin: 0 auto;
     width: 100%;
     max-width: 900px;
+  }
+
+  &__title {
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  &__effect {
+    border: 1px solid var(--primary);
+    padding: 9px;
+
+    &--title, &--subtitle{
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+      font-size: 1.3rem;
+    }
+
+    p{
+      letter-spacing: 0.5px;
+      line-height: 1.25rem;
+      font-size: 1.1rem;
+    }
+
+    hr{
+      margin: 10px 0;
+    }
   }
 }
