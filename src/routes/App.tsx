@@ -4,6 +4,7 @@ import { Home } from "../pages/Home";
 import { PokemonDetail } from "../pages/PokemonDetail";
 import { PokemonPhotos } from "../pages/PokemonPhotos";
 import { Ability } from "../pages/Ability";
+import { Move } from "../pages/Move";
 import { Layout } from "../containers/Layout"
 
 import { useInitialState } from "../hooks/useInitialState"
@@ -22,6 +23,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path="/pokemon/:name" element={<PokemonDetail />} />
             <Route path="/pokemon/:name/photos" element={<PokemonPhotos />}/>
             <Route path="/ability/:id/" element={<Ability />}/>
+            <Route path="/move/:id/" element={<Move />} />
           </Routes>
         </Layout>
       </AppContext.Provider>

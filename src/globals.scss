@@ -44,6 +44,12 @@ body {
   }
 }
 
+@mixin subpage-wrapper{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+}
+
 @mixin standard-grid{
   width: 100%;
   display: grid;
@@ -156,6 +162,7 @@ body {
 @import './pages/PokemonDetail/PokemonDetail.scss';
 @import './pages/PokemonPhotos/PokemonPhotos.scss';
 @import './pages/Ability/Ability.scss';
+@import './pages/Move/Move.scss';
 
 @import './skeletons/Pokemon/Pokemon.scss';
 @import './skeletons/PokemonDetailSk/PokemonDetailSk.scss';
