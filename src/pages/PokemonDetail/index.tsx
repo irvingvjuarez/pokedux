@@ -6,8 +6,8 @@ import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
 
 import { IPokemon } from "../../types"
-import { Section } from "./Section"
 
+import { Section } from "../../components/Section"
 import { Carousel } from "../../components/Carousel"
 import { Media } from "../../components/Media"
 import { Tags } from "../../components/Tags"

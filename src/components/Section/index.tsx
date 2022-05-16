@@ -1,5 +1,5 @@
-import { Dropdown } from "../../../components/Dropdown"
-import { IList } from "../../../types";
+import { Dropdown } from "../../components/Dropdown"
+import { IList } from "../../types";
 
 interface SectionProps {
   title: string;
