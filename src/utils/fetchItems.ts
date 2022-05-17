@@ -21,6 +21,11 @@ export const fetchItems = (initialState: IInitialState) => {
         return Promise.all(solvedPromises)
       })
       .then(results => {
+        results = results.map(result => ({
+          ...result,
+          isInPokedex: false
+        }))
+
         addPokemons(results, newApi, newResults)
       })
   }

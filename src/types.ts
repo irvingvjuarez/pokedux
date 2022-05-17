@@ -106,6 +106,7 @@ export interface IPokemon {
   stats: IStat[],
   moves: IMoveRef[],
   abilities: IAbilityRef[],
+  isInPokedex: boolean,
 }
 
 export interface IState {

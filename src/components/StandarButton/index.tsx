@@ -4,7 +4,7 @@ interface StandarButtonProps {
 
 const StandarButton: React.FC<StandarButtonProps> = ({ text }): JSX.Element => {
   return(
-    <button className="pokemon-detail__cta">
+    <button className="standar-button">
       {text}
     </button>
   )

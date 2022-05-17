@@ -1,0 +1,10 @@
+.standar-button {
+  @include reset-button;
+  border: 2px solid rgba(0,0,0,0.25);
+  border-radius: 9px;
+  padding: 3px 6px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-left: 5px;
+}
