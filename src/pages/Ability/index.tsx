@@ -8,6 +8,7 @@ import { getId } from "../../utils/getId"
 
 import { ReturnBar } from "../../components/ReturnBar"
 import { Section } from "../../components/Section"
+import { Spinner } from "../../components/Spinner"
 
 const Ability: React.FC = (): JSX.Element => {
   const location = useLocation()
@@ -49,7 +50,7 @@ const Ability: React.FC = (): JSX.Element => {
             <Section title="Pokemons with this ability" list={ability.pokemon} />
           </>
         ) : (
-          <span>Loading...</span>
+          <Spinner />
         )}
       </article>
     </section>

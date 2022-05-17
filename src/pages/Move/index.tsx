@@ -9,6 +9,7 @@ import { arrangeListItems } from "./utils"
 import { ReturnBar } from "../../components/ReturnBar"
 import { Section } from "../../components/Section"
 import { ProgressBar } from "../../components/ProgressBar"
+import { Spinner } from "../../components/Spinner"
 
 const Move: React.FC = (): JSX.Element => {
   const { pathname } = useLocation()
@@ -68,7 +69,7 @@ const Move: React.FC = (): JSX.Element => {
             <Section title="Pokemons with this movement" list={move.learned_by_pokemon} />
           </>
         ) : (
-          <span>Loading...</span>
+          <Spinner />
         )}
       </article>
     </section>
