@@ -13,6 +13,8 @@ import { Media } from "../../components/Media"
 import { Tags } from "../../components/Tags"
 import { PokemonPicture } from "../../components/PokemonPicture"
 import { Sidebar } from "../../components/Sidebar";
+import { StandarButton } from "../../components/StandarButton";
+
 import { PokemonDetailSk } from "../../skeletons/PokemonDetailSk";
 
 const PokemonDetail: React.FC = (): JSX.Element => {
@@ -50,9 +52,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
           <nav className="pokemon-detail__head">
             <Media profile={pokemon.name} />
-            <button className="pokemon-detail__cta">
-              Catch it
-            </button>
+            <StandarButton text="Catch it" />
           </nav>
 
           <div className="pokemon-detail__title">
