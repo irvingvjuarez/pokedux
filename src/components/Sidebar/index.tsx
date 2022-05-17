@@ -24,7 +24,7 @@ const Sidebar: React.FC = (): JSX.Element => {
           return(
             <div key={section.title}>
               <li className={`sidebar__item ${doesMatch(path, section) && "active"}`}>
-                <Link to="/" >{section.title}</Link>
+                <Link to={section.path} >{section.title}</Link>
               </li>
               {detailMatch && (
                 <h4 className="sidebar__item--detail">

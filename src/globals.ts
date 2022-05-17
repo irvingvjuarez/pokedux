@@ -8,5 +8,10 @@ export const ALL_SECTIONS: IPageSection[] = [
     path: "/",
     title: "Pokemons",
     detail: "pokemon/"
+  },
+  {
+    path: "/pokedux",
+    title: "Pokedux",
+    detail: "pokedux/"
   }
 ]
