@@ -1,0 +1,62 @@
+.progress-bar{
+  position: relative;
+  width: 100%;
+  border-radius: 9px;
+  border: 1px solid var(--primary);
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  & > svg {
+    position: absolute;
+    top: 23px;
+  }
+
+  &__circle {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 10px;
+    stroke-dasharray: 357;
+    stroke-linecap: round;
+  }
+
+  &__title {
+    font-weight: 100;
+    letter-spacing: 0.5px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  &__outer {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.15);
+    padding: 9px;
+  }
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__quantity {
+    font-weight: 100;
+    font-size: 1.4rem;
+    margin-right: 2px;
+  }
+
+  &__percent{
+    display: flex;
+    align-items: baseline;
+  }
+}

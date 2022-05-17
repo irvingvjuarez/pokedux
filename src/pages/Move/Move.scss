@@ -2,4 +2,13 @@
   &__wrapper{
     @include subpage-wrapper;
   }
+
+  &__title{
+    @include subpage-title;
+  }
+
+  &__subtitle{
+    @include subtitle;
+    margin-bottom: 15px;
+  }
 }
