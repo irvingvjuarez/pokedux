@@ -1,0 +1,20 @@
+.not-found {
+  display: grid;
+  place-content: center;
+
+  &__wrapper {
+    text-align: center;
+
+    h2{
+      font-weight: 100;
+      letter-spacing: 0.5px;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    img{
+      width: 90%;
+      max-width: 500px;
+    }
+  }
+}

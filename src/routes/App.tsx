@@ -5,6 +5,7 @@ import { PokemonDetail } from "../pages/PokemonDetail";
 import { PokemonPhotos } from "../pages/PokemonPhotos";
 import { Ability } from "../pages/Ability";
 import { Move } from "../pages/Move";
+import { NotFound } from "../pages/NotFound";
 
 import { Layout } from "../containers/Layout"
 import { Modal } from "../containers/Modal"
@@ -26,6 +27,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path="/pokemon/:name/photos" element={<PokemonPhotos />}/>
             <Route path="/ability/:id/" element={<Ability />}/>
             <Route path="/move/:id/" element={<Move />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
 
