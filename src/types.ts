@@ -111,6 +111,7 @@ export interface IPokemon {
 
 export interface IState {
   pokemons: IPokemon[];
+  pokedux: IPokemon[];
   results: IResult[];
   searchResults: IResult[];
   offset: number;
@@ -133,5 +134,7 @@ export interface IInitialState {
   updateResults(payload: IResult[]): void,
   addAbility(payload: IAbility): void,
   addMove(payload: IMove): void,
-  toggleModal(payload?: unknown): void
+  toggleModal(payload?: unknown): void,
+  addToPokedux(payload: IPokemon): void,
+  removeFromPokedux(payload: number): void
 }

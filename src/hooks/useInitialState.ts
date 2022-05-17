@@ -5,6 +5,7 @@ import { IAbility, IMove, IPokemon, IResult, IState } from "../types"
 export const useInitialState = () => {
   const [state, setState] = useState<IState>({
     pokemons: [],
+    pokedux: [],
     results: [],
     searchResults: [],
     offset: 0,
@@ -69,6 +70,20 @@ export const useInitialState = () => {
     })
   }
 
+  const addToPokedux = (payload: IPokemon) => {
+    setState({
+      ...state,
+      pokedux: [...state.pokedux, payload]
+    })
+  }
+
+  const removeFromPokedux = (payload: number) => {
+    setState({
+      ...state,
+      pokedux: state.pokedux.filter(item => item.id !== payload)
+    })
+  }
+
   return {
     state,
     addPokemons,
@@ -76,6 +91,8 @@ export const useInitialState = () => {
     updateResults,
     addAbility,
     addMove,
-    toggleModal
+    toggleModal,
+    addToPokedux,
+    removeFromPokedux
   }
 }
