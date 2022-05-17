@@ -19,27 +19,27 @@ const Move: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     const prospectToMove = moves.find(move => move.id === Number(moveID))
+    
+    /**
+     If we already have the Move on the Global State, then, we need to arrange those items. Why?
+     The format given by the API is:
+     {
+       name: string,
+       url: string
+      }
+      
+      But the format to work on the Section component is:
+      {
+        item: {
+          name: string,
+          url: string
+        }
+      }
+      
+      So, the arrangeListItems does that transformation
+    */
+
     if(prospectToMove) {
-
-      /**
-       If we already have the Move on the Global State, then, we need to arrange those items. Why?
-       The format given by the API is:
-       {
-         name: string,
-         url: string
-       }
-
-       But the format to work on the Section component is:
-       {
-         item: {
-           name: string,
-           url: string
-         }
-       }
-
-       So, the arrangeListItems does that transformation
-      */
-
       const newPokemonArr = arrangeListItems(prospectToMove.learned_by_pokemon as IListItem[], "pokemon")
       setMove({
         ...prospectToMove,
@@ -58,7 +58,12 @@ const Move: React.FC = (): JSX.Element => {
             <h2 className="move__title">Movement: <code>{move.name}</code></h2>
 
             <h3 className="move__subtitle">Overall information</h3>
-            <ProgressBar />
+            <div className="move__overall">
+              <ProgressBar title="Accuracy" quantity={move.accuracy} />
+              <ProgressBar title="Power" quantity={move.power} />
+              <ProgressBar title="PP" quantity={move.pp} />
+              <ProgressBar title="Priority" quantity={move.priority} />
+            </div>
 
             <Section title="Pokemons with this movement" list={move.learned_by_pokemon} />
           </>

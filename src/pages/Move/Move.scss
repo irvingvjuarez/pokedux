@@ -11,4 +11,8 @@
     @include subtitle;
     margin-bottom: 15px;
   }
+
+  &__overall {
+    @include standard-grid;
+  }
 }

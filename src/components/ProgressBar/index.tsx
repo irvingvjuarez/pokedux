@@ -1,12 +1,17 @@
-const ProgressBar: React.FC = (): JSX.Element => {
+interface ProgressBarProps {
+  title: string;
+  quantity: number;
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ title, quantity }): JSX.Element => {
   return(
     <div className="progress-bar">
-      <h2 className="progress-bar__title">Accuracy</h2>
+      <h2 className="progress-bar__title">{title}</h2>
 
       <div className="progress-bar__outer">
         <div className="progress-bar__inner">
           <div className="progress-bar__percent">
-            <h3 className="progress-bar__quantity">79</h3>
+            <h3 className="progress-bar__quantity">{quantity}</h3>
             <span className="progress-bar__percentage-sign">%</span>
           </div>
         </div>
@@ -22,7 +27,7 @@ const ProgressBar: React.FC = (): JSX.Element => {
         <circle
           className="progress-bar__circle"
           cx="80" cy="80" r="54"
-          style={{ strokeDashoffset: "calc(357 - (79 * 357) / 100)" }}  />
+          style={{ strokeDashoffset: `calc(357 - (${quantity} * 357) / 100)` }}  />
       </svg>
     </div>
   )
