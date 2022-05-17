@@ -22,8 +22,6 @@ const PokemonDetail: React.FC = (): JSX.Element => {
   const location = useLocation()
   const pokemonID = usePathName(location)
   const state = useContext(AppContext)
-  let handleAddToPokedux
-  let handleRemoveFromPokedux
 
   useEffect(() => {
     async function getPokemon(){

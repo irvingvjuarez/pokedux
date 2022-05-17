@@ -1,5 +1,6 @@
 .pokedux {
   &__wrapper {
+    @include standard-grid;
     width: 100%;
   }
 

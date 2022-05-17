@@ -71,9 +71,10 @@ export const useInitialState = () => {
   }
 
   const addToPokedux = (payload: IPokemon) => {
+    const validation = state.pokedux.find(item => item.id === payload.id)
     setState({
       ...state,
-      pokedux: [...state.pokedux, payload]
+      pokedux: validation ? state.pokedux : [...state.pokedux, payload]
     })
   }
 

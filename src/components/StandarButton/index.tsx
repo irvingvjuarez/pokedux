@@ -17,8 +17,6 @@ const StandarButton: React.FC<StandarButtonProps> = ({ text, target }): JSX.Elem
     }
   }
 
-  console.log("Pokedux", pokedux)
-
   return(
     <button className="standar-button" onClick={handleClick}>
       {text}
