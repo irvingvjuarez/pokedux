@@ -17,7 +17,7 @@ const Pokedux: React.FC = (): JSX.Element => {
             {pokedux.map(item => <Pokemon data={item} />)}
           </>
         ) : (
-          <span className="pokedux__message">The Pokedux is empty</span>
+          <span className="pokedux__message">Your Pokedux is empty</span>
         )}
       </article>
     </section>

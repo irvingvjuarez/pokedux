@@ -22,6 +22,8 @@ const PokemonDetail: React.FC = (): JSX.Element => {
   const location = useLocation()
   const pokemonID = usePathName(location)
   const state = useContext(AppContext)
+  let handleAddToPokedux
+  let handleRemoveFromPokedux
 
   useEffect(() => {
     async function getPokemon(){
@@ -52,7 +54,9 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
           <nav className="pokemon-detail__head">
             <Media profile={pokemon.name} />
-            <StandarButton text="Catch it" />
+            <StandarButton
+              text={pokemon.isInPokedex ? "Release it" : "Catch it"}
+              target={pokemon} />
           </nav>
 
           <div className="pokemon-detail__title">
