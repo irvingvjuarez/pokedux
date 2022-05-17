@@ -10,8 +10,7 @@
 
   &__photo{
     border: 1px solid var(--primary);
-    // box-shadow: var(--shadow);
-    // border-radius: 9px;
+    cursor: pointer;
 
     img{
       width: 100%;

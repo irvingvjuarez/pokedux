@@ -5,7 +5,9 @@ import { PokemonDetail } from "../pages/PokemonDetail";
 import { PokemonPhotos } from "../pages/PokemonPhotos";
 import { Ability } from "../pages/Ability";
 import { Move } from "../pages/Move";
+
 import { Layout } from "../containers/Layout"
+import { Modal } from "../containers/Modal"
 
 import { useInitialState } from "../hooks/useInitialState"
 import { AppContext } from "../context/AppContext"
@@ -26,6 +28,10 @@ const App: React.FC = (): JSX.Element => {
             <Route path="/move/:id/" element={<Move />} />
           </Routes>
         </Layout>
+
+        <Modal
+          isModalOpen={initialState.state.isModalOpen}
+          toggle={initialState.toggleModal} />
       </AppContext.Provider>
     </BrowserRouter>
   )

@@ -13,7 +13,8 @@ export const useInitialState = () => {
     api: API + "?limit=" + LIMIT,
     count: 100000,
     abilities: [],
-    moves: []
+    moves: [],
+    isModalOpen: false,
   })
   
   const addPokemons = (payload: IPokemon[], api: string, newResults: IResult[], newCount: number | undefined) => {
@@ -55,12 +56,20 @@ export const useInitialState = () => {
     })
   }
 
+  const toggleModal = () => {
+    setState({
+      ...state,
+      isModalOpen: !state.isModalOpen
+    })
+  }
+
   return {
     state,
     addPokemons,
     updateSearches,
     updateResults,
     addAbility,
-    addMove
+    addMove,
+    toggleModal
   }
 }
