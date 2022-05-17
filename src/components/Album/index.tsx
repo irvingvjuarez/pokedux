@@ -12,7 +12,7 @@ interface AlbumProps {
 const Album: React.FC<AlbumProps> = ({ title, imagesList }): JSX.Element => {
   const photosArr = getImagesArr(imagesList)
   const { toggleModal } = useContext(AppContext) as IInitialState
-  const handleZoomIn = () => toggleModal()
+  const handleZoomIn = (content: string) => () => toggleModal(content)
 
   return(
     <article className="album">
@@ -22,7 +22,7 @@ const Album: React.FC<AlbumProps> = ({ title, imagesList }): JSX.Element => {
 
       <div className="album__content">
         {photosArr.map(photo => (
-          <div key={photo.title} className="album__photo" onClick={handleZoomIn}>
+          <div key={photo.title} className="album__photo" onClick={handleZoomIn(photo.url)}>
             <img src={photo.url} alt={photo.title} title={photo.title} />
           </div>
         ))}

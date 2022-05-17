@@ -119,7 +119,10 @@ export interface IState {
   count: number;
   abilities: IAbility[];
   moves: IMove[];
-  isModalOpen: boolean;
+  isModalOpen: {
+    content: unknown;
+    value: boolean;
+  };
 }
 
 export interface IInitialState {
@@ -129,5 +132,5 @@ export interface IInitialState {
   updateResults(payload: IResult[]): void,
   addAbility(payload: IAbility): void,
   addMove(payload: IMove): void,
-  toggleModal(): void
+  toggleModal(payload?: unknown): void
 }

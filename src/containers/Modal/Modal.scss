@@ -1,0 +1,42 @@
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.60);
+
+  display: grid;
+  place-content: center;
+
+  &__wrapper {
+    width: 90vw;
+    max-width: 550px;
+    min-height: 300px;
+    background-color: white;
+
+    img{
+      width: 100%
+    }
+  }
+
+  &__close-btn {
+    @include reset-button;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    border-radius: 3px;
+    background-color: white;
+    padding: 3px;
+    cursor: pointer;
+
+    display: grid;
+    place-content: center;
+
+    img{
+      width: 25px;
+    }
+  }
+}
