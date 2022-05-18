@@ -29,6 +29,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path="/ability/:id/" element={<Ability />}/>
             <Route path="/move/:id/" element={<Move />} />
             <Route path="/pokedux" element={<Pokedux />} />
+            <Route path="/pokedux/:name" element={<PokemonDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

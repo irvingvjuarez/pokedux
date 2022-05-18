@@ -15,7 +15,8 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
     height,
     weight,
     base_experience,
-    types
+    types,
+    isInPokedex
   } = data
   const [isBack, setIsBack] = useState(false)
   const handleChange = () => setIsBack(prev => !prev)
@@ -63,7 +64,7 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
         <Tags list={types} align="center"/>
       </div>
 
-      <Link to={`/pokemon/${name}`} className="pokemon__button">
+      <Link to={`/${isInPokedex ? "pokedux" : "pokemon"}/${name}`} className="pokemon__button">
         View Detail
       </Link>
     </div>
