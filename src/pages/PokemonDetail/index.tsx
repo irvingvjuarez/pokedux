@@ -25,9 +25,17 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     async function getPokemon(){
+      const pokeduxLocalStorage = JSON.parse( window.localStorage.getItem("pokedux") as string ) as IPokemon[]
+      const isPokemonInPokedux = pokeduxLocalStorage.find(pokemon => pokemon.name === pokemonID || pokemon.id === Number(pokemonID))
+
       let aspirantToPokemon
-      aspirantToPokemon = state?.state.pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
-      if(!aspirantToPokemon) aspirantToPokemon = await useFetchPokemon(pokemonID as string)
+      if(isPokemonInPokedux) {
+        aspirantToPokemon = isPokemonInPokedux
+      }else{
+        aspirantToPokemon = state?.state.pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
+        if(!aspirantToPokemon) aspirantToPokemon = await useFetchPokemon(pokemonID as string)
+      }
+
       setPokemon(aspirantToPokemon)
     }
     
