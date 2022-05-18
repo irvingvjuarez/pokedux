@@ -1,10 +1,15 @@
 .pokedux {
   &__wrapper {
     @include standard-grid;
+    position: relative;
     width: 100%;
   }
 
   &__message {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
     display: block;
     width: 100%;
     text-align: center;

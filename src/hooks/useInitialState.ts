@@ -72,16 +72,36 @@ export const useInitialState = () => {
 
   const addToPokedux = (payload: IPokemon) => {
     const validation = state.pokedux.find(item => item.id === payload.id)
+    const newPokemonsArr = [...state.pokemons]
+    if(!validation){
+      payload = {
+        ...payload,
+        isInPokedex: true
+      }
+      const index = state.pokemons.findIndex(item => item.id === payload.id)
+      newPokemonsArr.splice(index, 1, payload)
+    }
+
     setState({
       ...state,
-      pokedux: validation ? state.pokedux : [...state.pokedux, payload]
+      pokedux: validation ? state.pokedux : [...state.pokedux, payload],
+      pokemons: newPokemonsArr
     })
   }
 
   const removeFromPokedux = (payload: number) => {
+    const index = state.pokemons.findIndex(pokemon => pokemon.id === payload)
+    const newPokemon: IPokemon = {
+      ...state.pokemons[index],
+      isInPokedex: false
+    }
+    const newPokemonsArr = [...state.pokemons]
+    newPokemonsArr.splice(index, 1, newPokemon)
+
     setState({
       ...state,
-      pokedux: state.pokedux.filter(item => item.id !== payload)
+      pokedux: state.pokedux.filter(item => item.id !== payload),
+      pokemons: newPokemonsArr
     })
   }
 
