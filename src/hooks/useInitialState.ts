@@ -82,9 +82,14 @@ export const useInitialState = () => {
       newPokemonsArr.splice(index, 1, payload)
     }
 
+    /** Here the pokedux array has been added to the localStorage */
+    const localStoragePokedux = JSON.parse( window.localStorage.getItem("pokedux") as string )
+    const newLocalStoragePokedux = validation ? localStoragePokedux : [...localStoragePokedux, payload]
+    window.localStorage.setItem("pokedux", JSON.stringify(newLocalStoragePokedux))
+
     setState({
       ...state,
-      pokedux: validation ? state.pokedux : [...state.pokedux, payload],
+      pokedux: newLocalStoragePokedux,
       pokemons: newPokemonsArr
     })
   }
@@ -98,9 +103,14 @@ export const useInitialState = () => {
     const newPokemonsArr = [...state.pokemons]
     newPokemonsArr.splice(index, 1, newPokemon)
 
+    /** Here the pokedux array has been modified into the localStorage */
+    const localStoragePokedux = JSON.parse( window.localStorage.getItem("pokedux") as string ) as IPokemon[]
+    const newLocalStoragePokedux = localStoragePokedux.filter(item => item.id !== payload)
+    window.localStorage.setItem("pokedux", JSON.stringify(newLocalStoragePokedux))
+
     setState({
       ...state,
-      pokedux: state.pokedux.filter(item => item.id !== payload),
+      pokedux: newLocalStoragePokedux,
       pokemons: newPokemonsArr
     })
   }
