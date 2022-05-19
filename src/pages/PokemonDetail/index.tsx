@@ -5,7 +5,7 @@ import { AppContext } from "../../context/AppContext"
 import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
 
-import { IPokemon } from "../../types"
+import { IInitialState, IPokemon } from "../../types"
 
 import { Section } from "../../components/Section"
 import { Carousel } from "../../components/Carousel"
@@ -21,7 +21,9 @@ const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
   const location = useLocation()
   const pokemonID = usePathName(location)
-  const state = useContext(AppContext)
+  const { state:{pokemons, notification} } = useContext(AppContext) as IInitialState
+
+  useEffect(() => console.log("Notification", notification), [notification])
 
   useEffect(() => {
     async function getPokemon(){
@@ -32,7 +34,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
       if(isPokemonInPokedux) {
         aspirantToPokemon = isPokemonInPokedux
       }else{
-        aspirantToPokemon = state?.state.pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
+        aspirantToPokemon = pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
         if(!aspirantToPokemon) aspirantToPokemon = await useFetchPokemon(pokemonID as string)
       }
 

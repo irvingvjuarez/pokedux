@@ -125,6 +125,10 @@ export interface IState {
     content: unknown;
     value: boolean;
   };
+  notification: {
+    content: string;
+    value: boolean;
+  };
 }
 
 export interface IInitialState {

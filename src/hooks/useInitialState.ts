@@ -19,6 +19,10 @@ export const useInitialState = () => {
       content: null,
       value: false
     },
+    notification: {
+      content: "",
+      value: false
+    },
   })
   
   const addPokemons = (payload: IPokemon[], api: string, newResults: IResult[], newCount: number | undefined) => {
@@ -90,8 +94,14 @@ export const useInitialState = () => {
     setState({
       ...state,
       pokedux: newLocalStoragePokedux,
-      pokemons: newPokemonsArr
+      pokemons: newPokemonsArr,
+      notification: {
+        content: "The pokemon was added successfully",
+        value: true
+      }
     })
+
+    updateNotification()
   }
 
   const removeFromPokedux = (payload: number) => {
@@ -111,8 +121,26 @@ export const useInitialState = () => {
     setState({
       ...state,
       pokedux: newLocalStoragePokedux,
-      pokemons: newPokemonsArr
+      pokemons: newPokemonsArr,
+      notification: {
+        content: "The pokemon was removed successfully",
+        value: true
+      }
     })
+
+    updateNotification()
+  }
+
+  const updateNotification = () => {
+    setTimeout(() => {
+      setState({
+        ...state,
+        notification: {
+          content: "",
+          value: false
+        }
+      })
+    }, 2000)
   }
 
   return {
