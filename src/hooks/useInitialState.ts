@@ -140,7 +140,7 @@ export const useInitialState = () => {
           value: false
         }
       })
-    }, 2000)
+    }, 5000)
   }
 
   return {

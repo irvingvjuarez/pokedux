@@ -11,6 +11,8 @@ import { Pokedux } from "../pages/Pokedux";
 import { Layout } from "../containers/Layout"
 import { Modal } from "../containers/Modal"
 
+import { Notification } from "../components/Notification"
+
 import { useInitialState } from "../hooks/useInitialState"
 import { AppContext } from "../context/AppContext"
 import { IInitialState } from '../types';
@@ -37,6 +39,8 @@ const App: React.FC = (): JSX.Element => {
         <Modal
           isModalOpen={initialState.state.isModalOpen}
           toggle={initialState.toggleModal} />
+
+        <Notification />
       </AppContext.Provider>
     </BrowserRouter>
   )

@@ -1,0 +1,19 @@
+.notification{
+  position: fixed;
+  bottom: 30px;
+  right: -100%;
+  background-color: white;
+  box-shadow: var(--shadow);
+  border-radius: 3px;
+  padding: 10px 20px;
+
+  font-size: 1rem;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  transition: right 1s;
+  color: var(--contrast-color);
+
+  &.on{
+    right: 30px;
+  }
+}
