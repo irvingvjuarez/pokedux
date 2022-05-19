@@ -21,9 +21,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
   const location = useLocation()
   const pokemonID = usePathName(location)
-  const { state:{pokemons, notification} } = useContext(AppContext) as IInitialState
-
-  useEffect(() => console.log("Notification", notification), [notification])
+  const { state:{pokemons}, addSinglePokemon } = useContext(AppContext) as IInitialState
 
   useEffect(() => {
     async function getPokemon(){
@@ -35,7 +33,10 @@ const PokemonDetail: React.FC = (): JSX.Element => {
         aspirantToPokemon = isPokemonInPokedux
       }else{
         aspirantToPokemon = pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
-        if(!aspirantToPokemon) aspirantToPokemon = await useFetchPokemon(pokemonID as string)
+        if(!aspirantToPokemon) {
+          aspirantToPokemon = await useFetchPokemon(pokemonID as string)
+          addSinglePokemon(aspirantToPokemon)
+        } 
       }
 
       setPokemon(aspirantToPokemon)

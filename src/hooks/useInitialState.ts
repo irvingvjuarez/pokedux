@@ -36,6 +36,13 @@ export const useInitialState = () => {
     })
   }
 
+  const addSinglePokemon = (payload: IPokemon) => {
+    setState({
+      ...state,
+      pokemons: [...state.pokemons, payload]
+    })
+  }
+
   const updateSearches = (payload: string) => {
     setState({
       ...state,
@@ -152,6 +159,7 @@ export const useInitialState = () => {
     addMove,
     toggleModal,
     addToPokedux,
-    removeFromPokedux
+    removeFromPokedux,
+    addSinglePokemon
   }
 }

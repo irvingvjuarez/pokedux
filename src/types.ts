@@ -140,5 +140,6 @@ export interface IInitialState {
   addMove(payload: IMove): void,
   toggleModal(payload?: unknown): void,
   addToPokedux(payload: IPokemon): void,
-  removeFromPokedux(payload: number): void
+  removeFromPokedux(payload: number): void,
+  addSinglePokemon(payload: IPokemon): void
 }
