@@ -16,6 +16,7 @@ import { Sidebar } from "../../components/Sidebar";
 import { StandarButton } from "../../components/StandarButton";
 
 import { PokemonDetailSk } from "../../skeletons/PokemonDetailSk";
+import { ReturnBar } from "../../components/ReturnBar"
 
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
@@ -56,50 +57,54 @@ const PokemonDetail: React.FC = (): JSX.Element => {
     <section className="pokemon-detail">
       <Sidebar />
 
-      {pokemon ? (
-        <div className="pokemon-detail__wrapper">
-          <div className="pokemon-detail__background">
-            <PokemonPicture
-              front={pokemon.sprites.other.dream_world.front_default}
-              back={pokemon.sprites.back_default}
-              alt={pokemon.name}
-              containerSide="82px"
-              isProfilePicture={true} />
+      <div className="pokemon-detail__wrapper">
+        <ReturnBar />
+
+        {pokemon ? (
+          <div>
+            <div className="pokemon-detail__background">
+              <PokemonPicture
+                front={pokemon.sprites.other.dream_world.front_default}
+                back={pokemon.sprites.back_default}
+                alt={pokemon.name}
+                containerSide="82px"
+                isProfilePicture={true} />
+            </div>
+
+            <nav className="pokemon-detail__head">
+              <Media profile={pokemon.name} />
+              <StandarButton
+                text={pokemon.isInPokedex ? "Release it" : "Catch it"}
+                target={pokemon} />
+            </nav>
+
+            <div className="pokemon-detail__title">
+              <h2>{pokemon.name}</h2>
+              <Tags list={pokemon.types}/>
+            </div>
+
+            <Section 
+              title="Overall information" 
+              list={[
+                {base_stat: pokemon.base_experience, stat: { name: "Experience" }},
+                {base_stat: pokemon.height, stat: { name: "Height" }},
+                {base_stat: pokemon.weight, stat: { name: "Weight" }},
+                ...pokemon.stats,
+              ]}
+              isStat={true}
+            />
+
+            <Carousel
+              title="Photos"
+              imagesList={pokemon.sprites}
+              url={`/pokemon/${pokemon.name}/photos`} />
+            <Section title="Abilities" list={pokemon.abilities} />
+            <Section title="Movements" list={pokemon.moves} />
           </div>
-
-          <nav className="pokemon-detail__head">
-            <Media profile={pokemon.name} />
-            <StandarButton
-              text={pokemon.isInPokedex ? "Release it" : "Catch it"}
-              target={pokemon} />
-          </nav>
-
-          <div className="pokemon-detail__title">
-            <h2>{pokemon.name}</h2>
-            <Tags list={pokemon.types}/>
-          </div>
-
-          <Section 
-            title="Overall information" 
-            list={[
-              {base_stat: pokemon.base_experience, stat: { name: "Experience" }},
-              {base_stat: pokemon.height, stat: { name: "Height" }},
-              {base_stat: pokemon.weight, stat: { name: "Weight" }},
-              ...pokemon.stats,
-            ]}
-            isStat={true}
-          />
-
-          <Carousel
-            title="Photos"
-            imagesList={pokemon.sprites}
-            url={`/pokemon/${pokemon.name}/photos`} />
-          <Section title="Abilities" list={pokemon.abilities} />
-          <Section title="Movements" list={pokemon.moves} />
-        </div>
-      ) : (
-        <PokemonDetailSk />
-      )}
+        ) : (
+          <PokemonDetailSk />
+        )}
+      </div>
     </section>
   )
 }
