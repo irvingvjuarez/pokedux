@@ -1,4 +1,6 @@
 .notification{
+  width: 80%;
+  max-width: 500px;
   position: fixed;
   bottom: 30px;
   right: -100%;
@@ -14,6 +16,6 @@
   color: var(--contrast-color);
 
   &.on{
-    right: 30px;
+    right: 15px;
   }
 }

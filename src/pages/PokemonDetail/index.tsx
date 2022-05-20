@@ -14,9 +14,9 @@ import { Tags } from "../../components/Tags"
 import { PokemonPicture } from "../../components/PokemonPicture"
 import { Sidebar } from "../../components/Sidebar";
 import { StandarButton } from "../../components/StandarButton";
+import { ReturnBar } from "../../components/ReturnBar"
 
 import { PokemonDetailSk } from "../../skeletons/PokemonDetailSk";
-import { ReturnBar } from "../../components/ReturnBar"
 
 const PokemonDetail: React.FC = (): JSX.Element => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null)
