@@ -23,23 +23,27 @@ export const useInitialState = () => {
       content: "",
       value: false
     },
+    pokemonsIDs: []
   })
   
-  const addPokemons = (payload: IPokemon[], api: string, newResults: IResult[], newCount: number | undefined) => {
+  const addPokemons = (payload: IPokemon[], api: string, newResults: IResult[]) => {
+    payload = payload.filter(item => !state.pokemonsIDs.includes(item.id))
+
     setState({
       ...state,
       offset: state.offset + LIMIT,
       results: [...state.results, ...newResults],
       pokemons: [...state.pokemons, ...payload],
       api,
-      count: newCount ? newCount : state.count
+      pokemonsIDs: [...state.pokemonsIDs, ...payload.map(item => item.id)]
     })
   }
 
   const addSinglePokemon = (payload: IPokemon) => {
     setState({
       ...state,
-      pokemons: [...state.pokemons, payload]
+      pokemons: [...state.pokemons, payload],
+      pokemonsIDs: [...state.pokemonsIDs, payload.id]
     })
   }
 

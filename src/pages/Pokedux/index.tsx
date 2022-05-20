@@ -4,7 +4,6 @@ import { IPokemon } from "../../types"
 
 const Pokedux: React.FC = (): JSX.Element => {
   const pokedux = JSON.parse(window.localStorage.getItem("pokedux") as string) as IPokemon[]
-  console.log("pokedux", pokedux)
 
   return(
     <section className="page pokedux">

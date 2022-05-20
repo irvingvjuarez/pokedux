@@ -129,6 +129,7 @@ export interface IState {
     content: string;
     value: boolean;
   };
+  pokemonsIDs: number[];
 }
 
 export interface IInitialState {
