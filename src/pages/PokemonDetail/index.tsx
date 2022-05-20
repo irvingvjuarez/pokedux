@@ -25,26 +25,32 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     async function getPokemon(){
+      /** 
+       * Here a comprobation to know if the pokemon exists in the LocalStorage 
+       * If so, setPokemon(isPokemonInPokedux) is performed
+      * */
       const pokeduxLocalStorage = JSON.parse( window.localStorage.getItem("pokedux") as string ) as IPokemon[]
       const isPokemonInPokedux = pokeduxLocalStorage.find(pokemon => pokemon.name === pokemonID || pokemon.id === Number(pokemonID))
+      if(isPokemonInPokedux) setPokemon(isPokemonInPokedux)
 
-      let aspirantToPokemon
-      if(isPokemonInPokedux) {
-        aspirantToPokemon = isPokemonInPokedux
-      }else{
-        aspirantToPokemon = pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
+      /**
+       * If not, a fetch to that specific pokemon is performed and the pokemons of the 
+       * global state is updated, updating this useEffect and re-rendering the whole component
+      */
+
+      if(!isPokemonInPokedux) {
+        let aspirantToPokemon = pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
+        if(aspirantToPokemon) setPokemon(aspirantToPokemon)
         if(!aspirantToPokemon) {
           aspirantToPokemon = await useFetchPokemon(pokemonID as string)
           addSinglePokemon(aspirantToPokemon)
-        } 
+        }
       }
-
-      setPokemon(aspirantToPokemon)
     }
     
     getPokemon()
 
-  }, [location.pathname])
+  }, [location.pathname, pokemons])
 
   return(
     <section className="pokemon-detail">
