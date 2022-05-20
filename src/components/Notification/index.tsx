@@ -18,4 +18,4 @@ const Notification: React.FC = (): JSX.Element => {
   )
 }
 
-export { Notification }
+export default Notification

@@ -43,4 +43,4 @@ const PokemonPhotos: React.FC = (): JSX.Element => {
   )
 }
 
-export { PokemonPhotos }
+export default PokemonPhotos

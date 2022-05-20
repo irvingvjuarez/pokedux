@@ -15,4 +15,4 @@ const NotFound: React.FC = (): JSX.Element => {
   )
 }
 
-export { NotFound }
+export default NotFound

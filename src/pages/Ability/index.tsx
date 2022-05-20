@@ -57,4 +57,4 @@ const Ability: React.FC = (): JSX.Element => {
   )
 }
 
-export { Ability }
+export default Ability

@@ -1,17 +1,18 @@
+import { lazy, Suspense } from "react"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { Home } from "../pages/Home";
-import { PokemonDetail } from "../pages/PokemonDetail";
-import { PokemonPhotos } from "../pages/PokemonPhotos";
-import { Ability } from "../pages/Ability";
-import { Move } from "../pages/Move";
-import { NotFound } from "../pages/NotFound";
-import { Pokedux } from "../pages/Pokedux";
+const Home = lazy(() => import("../pages/Home"))
+const PokemonDetail = lazy(() => import("../pages/PokemonDetail"))
+const PokemonPhotos = lazy(() => import("../pages/PokemonPhotos"))
+const Ability = lazy(() => import("../pages/Ability"))
+const Move = lazy(() => import("../pages/Move"))
+const NotFound = lazy(() => import("../pages/NotFound"))
+const Pokedux = lazy(() => import("../pages/Pokedux"))
 
 import { Layout } from "../containers/Layout"
-import { Modal } from "../containers/Modal"
+const Modal = lazy(() => import("../containers/Modal"))
 
-import { Notification } from "../components/Notification"
+const Notification = lazy(() => import("../components/Notification"))
 
 import { useInitialState } from "../hooks/useInitialState"
 import { AppContext } from "../context/AppContext"
@@ -25,22 +26,56 @@ const App: React.FC = (): JSX.Element => {
       <AppContext.Provider value={initialState}>
         <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/pokemon/:name" element={<PokemonDetail />} />
-            <Route path="/pokemon/:name/photos" element={<PokemonPhotos />}/>
-            <Route path="/ability/:id/" element={<Ability />}/>
-            <Route path="/move/:id/" element={<Move />} />
-            <Route path="/pokedux" element={<Pokedux />} />
-            <Route path="/pokedux/:name" element={<PokemonDetail />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={
+              <Suspense fallback="Loading...">
+                <Home />
+              </Suspense>
+            } />
+            <Route path="/pokemon/:name" element={
+              <Suspense fallback="Loading...">
+                <PokemonDetail />
+              </Suspense>
+            } />
+            <Route path="/pokemon/:name/photos" element={
+              <Suspense fallback="Loading...">
+                <PokemonPhotos />
+              </Suspense>
+            }/>
+            <Route path="/ability/:id/" element={
+              <Suspense fallback="Loading...">
+                <Ability />
+              </Suspense>
+            }/>
+            <Route path="/move/:id/" element={
+              <Suspense fallback="Loading...">
+                <Move />
+              </Suspense>
+            } />
+            <Route path="/pokedux" element={
+              <Suspense fallback="Loading...">
+                <Pokedux />
+              </Suspense>
+            } />
+            <Route path="/pokedux/:name" element={
+              <Suspense fallback="Loading...">
+                <PokemonDetail />
+              </Suspense>
+            } />
+            <Route path="*" element={
+              <Suspense fallback="Loading...">
+                <NotFound />
+              </Suspense>
+            } />
           </Routes>
         </Layout>
 
-        <Modal
-          isModalOpen={initialState.state.isModalOpen}
-          toggle={initialState.toggleModal} />
+        <Suspense fallback="Loading...">
+          <Modal
+            isModalOpen={initialState.state.isModalOpen}
+            toggle={initialState.toggleModal} />
+        </Suspense>
 
-        <Notification />
+        <Suspense fallback="Loading..."><Notification /></Suspense>
       </AppContext.Provider>
     </BrowserRouter>
   )

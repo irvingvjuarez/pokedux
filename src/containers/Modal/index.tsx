@@ -28,4 +28,4 @@ const Modal: React.FC<ModalProps> = ({ isModalOpen, toggle }): JSX.Element => {
   )
 }
 
-export { Modal }
+export default Modal

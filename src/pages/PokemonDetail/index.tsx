@@ -109,4 +109,4 @@ const PokemonDetail: React.FC = (): JSX.Element => {
   )
 }
 
-export { PokemonDetail }
+export default PokemonDetail

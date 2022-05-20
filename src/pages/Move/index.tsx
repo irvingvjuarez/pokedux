@@ -76,4 +76,4 @@ const Move: React.FC = (): JSX.Element => {
   )
 }
 
-export { Move }
+export default Move

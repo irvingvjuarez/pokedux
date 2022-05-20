@@ -10,4 +10,4 @@ const Home: React.FC = (): JSX.Element => {
   )
 }
 
-export { Home }
+export default Home
