@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, memo } from "react"
 import { PokemonProps } from "./types"
 import { Link } from "react-router-dom"
 import { Tags } from "../Tags"
@@ -71,4 +71,4 @@ const Pokemon: React.FC<PokemonProps> = ({ data }): JSX.Element => {
   )
 }
 
-export { Pokemon }
+export default memo(Pokemon, (prevProps, nextProps) => prevProps.id === nextProps.id)

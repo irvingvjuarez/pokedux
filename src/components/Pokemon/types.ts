@@ -1,5 +1,6 @@
 import { IPokemon } from "../../types";
 
 export interface PokemonProps {
-  data: IPokemon
+  data: IPokemon,
+  id: number
 }

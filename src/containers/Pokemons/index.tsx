@@ -1,9 +1,9 @@
-import { useContext, useEffect, useRef, Fragment } from "react"
+import { useContext, useEffect, useRef, Fragment, useMemo } from "react"
 import { AppContext } from "../../context/AppContext"
 import { IInitialState } from "../../types"
 import { fetchItems } from "../../utils/fetchItems"
 
-import { Pokemon } from "../../components/Pokemon"
+import Pokemon from "../../components/Pokemon"
 import { PokemonSkeleton } from "../../skeletons/Pokemon"
 import { useObserver } from "../../hooks/useObserver"
 import { ARR } from "../../globals"
@@ -28,6 +28,7 @@ const Pokemons: React.FC = (): JSX.Element => {
             {pokemons.map(pokemon => (
               <Pokemon
                 key={pokemon.id}
+                id={pokemon.id}
                 data={pokemon} />
             ))}
           </Fragment>
