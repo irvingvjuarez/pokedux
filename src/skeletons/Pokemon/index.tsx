@@ -1,4 +1,10 @@
-const PokemonSkeleton: React.FC = (): JSX.Element => {
+import { memo } from "react"
+
+interface PokemonSkeletonProps {
+  id: string;
+}
+
+const PokemonSkeleton: React.FC<PokemonSkeletonProps> = ({ id }): JSX.Element => {
   return(
     <div className="pokemon-skeleton">
       <div className="pokemon-skeleton__wrapper">
@@ -21,4 +27,4 @@ const PokemonSkeleton: React.FC = (): JSX.Element => {
   )
 }
 
-export { PokemonSkeleton }
+export default memo(PokemonSkeleton)

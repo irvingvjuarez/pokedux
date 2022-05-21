@@ -4,7 +4,7 @@ import { IInitialState } from "../../types"
 import { fetchItems } from "../../utils/fetchItems"
 
 import Pokemon from "../../components/Pokemon"
-import { PokemonSkeleton } from "../../skeletons/Pokemon"
+import PokemonSkeleton from "../../skeletons/Pokemon"
 import { useObserver } from "../../hooks/useObserver"
 import { ARR } from "../../globals"
 
@@ -34,13 +34,13 @@ const Pokemons: React.FC = (): JSX.Element => {
           </Fragment>
         ) : (
           <Fragment>
-            {ARR.map(item => <PokemonSkeleton key={item} />)}
+            {ARR.map(item => <PokemonSkeleton id={item} key={item} />)}
           </Fragment>
         )}
       </div>
 
       <div className="visor hidden pokemons-container" ref={visorRef}>
-        {ARR.map(item => <PokemonSkeleton key={item} />)}
+        {ARR.map(item => <PokemonSkeleton id={item} key={item} />)}
       </div>
     </section>
   )
