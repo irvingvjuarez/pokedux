@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react"
+import { lazy, Suspense, useMemo } from "react"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const Home = lazy(() => import("../pages/Home"))
@@ -20,10 +20,11 @@ import { IInitialState } from '../types';
 
 const App: React.FC = (): JSX.Element => {
   const initialState = useInitialState() as IInitialState
+  const initialValue = useMemo(() => ({ ...initialState }), [initialState.state.pokemons])
 
   return(
     <BrowserRouter>
-      <AppContext.Provider value={initialState}>
+      <AppContext.Provider value={initialValue}>
         <Layout>
           <Routes>
             <Route path="/" element={
