@@ -9,7 +9,7 @@ const Move = lazy(() => import("../pages/Move"))
 const NotFound = lazy(() => import("../pages/NotFound"))
 const Pokedux = lazy(() => import("../pages/Pokedux"))
 
-import { Layout } from "../containers/Layout"
+import Layout from "../containers/Layout"
 const Modal = lazy(() => import("../containers/Modal"))
 
 const Notification = lazy(() => import("../components/Notification"))
