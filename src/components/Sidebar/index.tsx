@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useMemo, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { AppContext } from "../../context/AppContext";
 import { ALL_SECTIONS } from "../../globals"
@@ -7,13 +7,12 @@ import { doesMatch, getMatch } from "./utils";
 
 const Sidebar: React.FC = (): JSX.Element => {
   const location = useLocation()
-  const { state:{pokemons} } = useContext(AppContext) as IInitialState
+  const initialState = useContext(AppContext) as IInitialState
+  const pokemons = useMemo(() => ([ ...initialState.state.pokemons ]), [initialState.state.pokemons])
 
   const [path, setPath] = useState(location.pathname)
 
-  useEffect(() => {
-    setPath(location.pathname)
-  }, [location.pathname])
+  useEffect(() => setPath(location.pathname), [location.pathname])
 
   return(
     <nav className="sidebar">
