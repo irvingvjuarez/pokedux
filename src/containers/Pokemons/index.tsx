@@ -8,12 +8,10 @@ import PokemonSkeleton from "../../skeletons/Pokemon"
 import { useObserver } from "../../hooks/useObserver"
 import { ARR } from "../../globals"
 
-
 const Pokemons: React.FC = (): JSX.Element => {
   const initialState = useContext(AppContext) as IInitialState
-  const init = useMemo(() => ({...initialState}), [])
   const pokemons = useMemo(() => [...initialState.state.pokemons], [initialState.state.pokemons])
-  const observer = useObserver(init)
+  const observer = useObserver(initialState)
   const visorRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
