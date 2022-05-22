@@ -11,9 +11,10 @@ import { ARR } from "../../globals"
 
 const Pokemons: React.FC = (): JSX.Element => {
   const initialState = useContext(AppContext) as IInitialState
-  const { state:{pokemons} } = initialState
+  const init = useMemo(() => ({...initialState}), [])
+  const pokemons = useMemo(() => [...initialState.state.pokemons], [initialState.state.pokemons])
+  const observer = useObserver(init)
   const visorRef = useRef<HTMLDivElement | null>(null)
-  const observer = useObserver(initialState)
 
   useEffect(() => {
     if(!pokemons.length) fetchItems(initialState)
