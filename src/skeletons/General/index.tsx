@@ -4,23 +4,23 @@ import { PokemonDetailSk } from "../PokemonDetailSk"
 import PokemonSkeleton from "../Pokemon"
 
 interface GeneralSkeletonProps {
-  type: "home" | "detail" | "subpage" | "not-found"
+  type: "home" | "detail" | "subpage"
 }
 
 const GeneralSkeleton: React.FC<GeneralSkeletonProps> = ({ type }): JSX.Element => {
   return (
     <section className="page general">
-      <article className="general__sidebar">
-        <SidebarSkeleton />
-      </article>
+      {type !== "subpage" && (
+        <article className="general__sidebar">
+          <SidebarSkeleton />
+        </article>
+      )}
       
-      {type === "home" && (
+      {type === "home" ? (
         <article className="general__home">
           {ARR.map(item => <PokemonSkeleton id={item} key={item} />)}
         </article>
-      )}
-
-      {type === "detail" && <PokemonDetailSk />}
+      ) : <PokemonDetailSk />}
     </section>
   )
 }

@@ -62,7 +62,7 @@ const App: React.FC = (): JSX.Element => {
               </Suspense>
             } />
             <Route path="*" element={
-              <Suspense fallback={<GeneralSkeleton type="not-found" />}>
+              <Suspense fallback={<GeneralSkeleton type="subpage" />}>
                 <NotFound />
               </Suspense>
             } />
