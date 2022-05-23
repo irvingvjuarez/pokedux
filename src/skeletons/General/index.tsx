@@ -1,5 +1,6 @@
 import { ARR } from "../../globals"
 import { SidebarSkeleton } from "../Sidebar"
+import { PokemonDetailSk } from "../PokemonDetailSk"
 import PokemonSkeleton from "../Pokemon"
 
 interface GeneralSkeletonProps {
@@ -18,6 +19,8 @@ const GeneralSkeleton: React.FC<GeneralSkeletonProps> = ({ type }): JSX.Element 
           {ARR.map(item => <PokemonSkeleton id={item} key={item} />)}
         </article>
       )}
+
+      {type === "detail" && <PokemonDetailSk />}
     </section>
   )
 }
