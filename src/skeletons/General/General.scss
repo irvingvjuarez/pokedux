@@ -1,0 +1,21 @@
+.general {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  &__home {
+    @include standard-grid;
+  }
+
+  &__sidebar {
+    display: none;
+  }
+
+  @media screen and (min-width: 900px) {
+    &__sidebar {
+      display: initial;
+      width: 200px;
+      margin-right: 10px;
+    }
+  }
+}

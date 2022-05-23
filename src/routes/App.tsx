@@ -15,6 +15,7 @@ import Layout from "../containers/Layout"
 import { useInitialState } from "../hooks/useInitialState"
 import { AppContext } from "../context/AppContext"
 import { IInitialState } from '../types';
+import { GeneralSkeleton } from "../skeletons/General"
 
 const App: React.FC = (): JSX.Element => {
   const initialState = useInitialState() as IInitialState
@@ -26,42 +27,42 @@ const App: React.FC = (): JSX.Element => {
         <Layout>
           <Routes>
             <Route path="/" element={
-              <Suspense fallback="Loading...">
+              <Suspense fallback={<GeneralSkeleton type="home" />}>
                 <Home />
               </Suspense>
             } />
             <Route path="/pokemon/:name" element={
-              <Suspense fallback="Loading...">
+              <Suspense fallback={<GeneralSkeleton type="detail" />}>
                 <PokemonDetail />
               </Suspense>
             } />
             <Route path="/pokemon/:name/photos" element={
-              <Suspense fallback="Loading...">
+              <Suspense fallback={<GeneralSkeleton type="detail" />}>
                 <PokemonPhotos />
               </Suspense>
             }/>
             <Route path="/ability/:id/" element={
-              <Suspense fallback="Loading...">
+              <Suspense fallback={<GeneralSkeleton type="subpage" />}>
                 <Ability />
               </Suspense>
             }/>
             <Route path="/move/:id/" element={
-              <Suspense fallback="Loading...">
+              <Suspense fallback={<GeneralSkeleton type="subpage" />}>
                 <Move />
               </Suspense>
             } />
             <Route path="/pokedux" element={
-              <Suspense fallback="Loading...">
+              <Suspense fallback={<GeneralSkeleton type="home" />}>
                 <Pokedux />
               </Suspense>
             } />
             <Route path="/pokedux/:name" element={
-              <Suspense fallback="Loading...">
+              <Suspense fallback={<GeneralSkeleton type="detail" />}>
                 <PokemonDetail />
               </Suspense>
             } />
             <Route path="*" element={
-              <Suspense fallback="Loading...">
+              <Suspense fallback={<GeneralSkeleton type="not-found" />}>
                 <NotFound />
               </Suspense>
             } />
@@ -69,7 +70,7 @@ const App: React.FC = (): JSX.Element => {
         </Layout>
 
         {initialState.state.isModalOpen.value && (
-          <Suspense fallback="Loading...">
+          <Suspense fallback={null}>
             <Modal
               isModalOpen={initialState.state.isModalOpen}
               toggle={initialState.toggleModal} />
@@ -77,7 +78,9 @@ const App: React.FC = (): JSX.Element => {
         )}
 
         {initialState.state.notification.value && (
-          <Suspense fallback="Loading..."><Notification /></Suspense>
+          <Suspense fallback={null}>
+            <Notification />
+          </Suspense>
         )}
       </AppContext.Provider>
     </BrowserRouter>
