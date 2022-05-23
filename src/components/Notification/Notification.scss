@@ -14,8 +14,19 @@
   letter-spacing: 0.5px;
   transition: right 1s;
   color: var(--contrast-color);
+  animation: notificationAnimation 6s linear;
+}
 
-  &.on{
+@keyframes notificationAnimation {
+  15% {
     right: 15px;
+  }
+
+  50% {
+    right: 15px;
+  }
+
+  100% {
+    right: -100%;   
   }
 }

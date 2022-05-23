@@ -8,7 +8,7 @@ const Notification: React.FC = (): JSX.Element => {
 
   return(
     ReactDOM.createPortal(
-      <div className={`notification ${notification.value && "on"}`}>
+      <div className="notification">
         <span className="notification__message">  
           {notification.content}
         </span>

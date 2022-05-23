@@ -1,4 +1,4 @@
-import { Pokemon } from "../../components/Pokemon"
+import Pokemon from "../../components/Pokemon"
 import { Sidebar } from "../../components/Sidebar"
 import { IPokemon } from "../../types"
 
@@ -16,7 +16,7 @@ const Pokedux: React.FC = (): JSX.Element => {
           
           {pokedux.length > 0 && (
             <>
-              {pokedux.map(item => <Pokemon key={item.id} data={item} />)}
+              {pokedux.map(item => <Pokemon key={item.id} id={item.id} data={item} />)}
             </>
           )}
         </article>

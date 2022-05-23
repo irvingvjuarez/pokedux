@@ -151,7 +151,7 @@ export const useInitialState = () => {
           value: false
         }
       })
-    }, 5000)
+    }, 7000)
   }
 
   return {

@@ -8,12 +8,10 @@ const Ability = lazy(() => import("../pages/Ability"))
 const Move = lazy(() => import("../pages/Move"))
 const NotFound = lazy(() => import("../pages/NotFound"))
 const Pokedux = lazy(() => import("../pages/Pokedux"))
-
-import Layout from "../containers/Layout"
 const Modal = lazy(() => import("../containers/Modal"))
-
 const Notification = lazy(() => import("../components/Notification"))
 
+import Layout from "../containers/Layout"
 import { useInitialState } from "../hooks/useInitialState"
 import { AppContext } from "../context/AppContext"
 import { IInitialState } from '../types';
@@ -70,13 +68,17 @@ const App: React.FC = (): JSX.Element => {
           </Routes>
         </Layout>
 
-        <Suspense fallback="Loading...">
-          <Modal
-            isModalOpen={initialState.state.isModalOpen}
-            toggle={initialState.toggleModal} />
-        </Suspense>
+        {initialState.state.isModalOpen.value && (
+          <Suspense fallback="Loading...">
+            <Modal
+              isModalOpen={initialState.state.isModalOpen}
+              toggle={initialState.toggleModal} />
+          </Suspense>
+        )}
 
-        <Suspense fallback="Loading..."><Notification /></Suspense>
+        {initialState.state.notification.value && (
+          <Suspense fallback="Loading..."><Notification /></Suspense>
+        )}
       </AppContext.Provider>
     </BrowserRouter>
   )
