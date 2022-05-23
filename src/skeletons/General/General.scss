@@ -1,7 +1,7 @@
 .general {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   &__home {
     @include standard-grid;

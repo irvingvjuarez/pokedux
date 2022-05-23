@@ -19,7 +19,9 @@ import { GeneralSkeleton } from "../skeletons/General"
 
 const App: React.FC = (): JSX.Element => {
   const initialState = useInitialState() as IInitialState
-  const initialValue = useMemo(() => ({ ...initialState }), [initialState.state.pokemons])
+  const initialValue = useMemo(() => ({ ...initialState }), 
+    [initialState.state.pokemons, initialState.state.abilities, initialState.state.moves]
+  )
 
   return(
     <BrowserRouter>
