@@ -1,7 +1,8 @@
 import { ISprites } from "../../types";
 
 export const getNewAlbum = (oldAlbum: ISprites) => {
-  const standard: object = {}
+  /** Here any is being used, but it's a bad practice */
+  const standard: any = {}
 
   for(let key of Object.keys(oldAlbum)){
     const value = oldAlbum[key as keyof ISprites]
