@@ -38,7 +38,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
        * If so, setPokemon(isPokemonInPokedux) is performed
       * */
       const pokeduxLocalStorage = JSON.parse( window.localStorage.getItem("pokedux") as string ) as IPokemon[]
-      const isPokemonInPokedux = pokeduxLocalStorage.find(pokemon => pokemon.name === pokemonID || pokemon.id === Number(pokemonID))
+      const isPokemonInPokedux = pokeduxLocalStorage && pokeduxLocalStorage.find(pokemon => pokemon.name === pokemonID || pokemon.id === Number(pokemonID))
       if(isPokemonInPokedux) handleUpdate(isPokemonInPokedux)
 
       /**
