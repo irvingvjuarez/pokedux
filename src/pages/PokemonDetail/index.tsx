@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
+import { Helmet } from "react-helmet"
 
 import { AppContext } from "../../context/AppContext"
 import { useFetchPokemon } from "../../hooks/useFetchPokemon"
@@ -55,6 +56,11 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
   return(
     <section className="pokemon-detail">
+      <Helmet>
+        <title>"Loading..."</title>
+        <meta property="og:title" content="Loading..." />
+      </Helmet>
+
       <Sidebar />
 
       <div className="pokemon-detail__wrapper">
@@ -62,6 +68,12 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
         {pokemon ? (
           <div>
+            <Helmet>
+              <title>{`${pokemon.name} | Pokedux`}</title>
+              <meta property="og:title" content={`${pokemon.name} | Pokedux`} />
+              <meta property="og:description" content={`See ${pokemon.name} details and photos`} />
+            </Helmet>
+
             <div className="pokemon-detail__background">
               <PokemonPicture
                 front={pokemon.sprites.other.dream_world.front_default}
