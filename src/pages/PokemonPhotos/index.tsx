@@ -6,6 +6,7 @@ import { IInitialState, IPokemon } from "../../types"
 
 import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
+import { useHelmet } from "../../hooks/useHelmet"
 
 import { Sidebar } from "../../components/Sidebar"
 import { ReturnBar } from "../../components/ReturnBar"
@@ -20,6 +21,7 @@ const PokemonPhotos: React.FC = (): JSX.Element => {
   useEffect(() => {
     async function search4Pokemon(){
       const aspirantToPokemon = pokemons.find(pokemon => pokemon.name === pokemonName) || await useFetchPokemon(pokemonName as string)
+      useHelmet(`${aspirantToPokemon.name}'s photos | Pokedux`, "See the art photos of your favorite pokemon")
       setPokemon(aspirantToPokemon)
     }
 

@@ -5,6 +5,7 @@ import { IInitialState, IListItem, IMove, IPokemonRef } from "../../types"
 import { fetchFeature } from "../../utils/fetchFeature"
 import { getId } from "../../utils/getId"
 import { arrangeListItems } from "./utils"
+import { useHelmet } from "../../hooks/useHelmet"
 
 import { ReturnBar } from "../../components/ReturnBar"
 import { Section } from "../../components/Section"
@@ -41,6 +42,7 @@ const Move: React.FC = (): JSX.Element => {
     */
 
     if(prospectToMove) {
+      useHelmet(`${prospectToMove.name} movement | Pokedux`, "Check it out the movements of the Pokemons")
       const newPokemonArr = arrangeListItems(prospectToMove.learned_by_pokemon as IListItem[], "pokemon")
       setMove({
         ...prospectToMove,
