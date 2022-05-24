@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom"
 import { AppContext } from "../../context/AppContext"
 import { useFetchPokemon } from "../../hooks/useFetchPokemon"
 import { usePathName } from "../../hooks/usePathName"
+import { useHelmet } from "../../hooks/useHelmet"
 
 import { IInitialState, IPokemon } from "../../types"
 
@@ -23,6 +24,12 @@ const PokemonDetail: React.FC = (): JSX.Element => {
   const location = useLocation()
   const pokemonID = usePathName(location)
   const { state:{pokemons}, addSinglePokemon } = useContext(AppContext) as IInitialState
+  const handleUpdate = (pokemon: IPokemon) => {
+    /**Pokemon and helmet updates done here */
+    setPokemon(pokemon)
+    const { name } = pokemon
+    useHelmet(`${name} detail | Pokedux`, `See the detail information of ${name}`)
+  }
 
   useEffect(() => {
     async function getPokemon(){
@@ -32,7 +39,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
       * */
       const pokeduxLocalStorage = JSON.parse( window.localStorage.getItem("pokedux") as string ) as IPokemon[]
       const isPokemonInPokedux = pokeduxLocalStorage.find(pokemon => pokemon.name === pokemonID || pokemon.id === Number(pokemonID))
-      if(isPokemonInPokedux) setPokemon(isPokemonInPokedux)
+      if(isPokemonInPokedux) handleUpdate(isPokemonInPokedux)
 
       /**
        * If not, a fetch to that specific pokemon is performed and the pokemons of the 
@@ -41,7 +48,7 @@ const PokemonDetail: React.FC = (): JSX.Element => {
 
       if(!isPokemonInPokedux) {
         let aspirantToPokemon = pokemons.find(item => item.name === pokemonID || item.id === Number(pokemonID)) as IPokemon
-        if(aspirantToPokemon) setPokemon(aspirantToPokemon)
+        if(aspirantToPokemon) handleUpdate(aspirantToPokemon)
         if(!aspirantToPokemon) {
           aspirantToPokemon = await useFetchPokemon(pokemonID as string)
           addSinglePokemon(aspirantToPokemon)
