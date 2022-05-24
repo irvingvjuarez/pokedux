@@ -99,7 +99,13 @@ export const useInitialState = () => {
 
     /** Here the pokedux array has been added to the localStorage */
     const localStoragePokedux = JSON.parse( window.localStorage.getItem("pokedux") as string )
-    const newLocalStoragePokedux = validation ? localStoragePokedux : [...localStoragePokedux, payload]
+    let newLocalStoragePokedux
+    if(localStoragePokedux){
+      if(validation) newLocalStoragePokedux = localStoragePokedux
+      if(!validation) newLocalStoragePokedux = [...localStoragePokedux, payload]
+    }else{
+      newLocalStoragePokedux = [payload]
+    }
     window.localStorage.setItem("pokedux", JSON.stringify(newLocalStoragePokedux))
 
     setState({
