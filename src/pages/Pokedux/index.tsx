@@ -12,15 +12,11 @@ const Pokedux: React.FC = (): JSX.Element => {
       <Sidebar />
 
         <article className="pokedux__wrapper">
-          {(!pokedux || pokedux.length === 0) && (
-            <span className="pokedux__message">Your Pokedux is empty</span>
-          )}
-          
-          {pokedux.length > 0 && (
+          {(pokedux && pokedux.length > 0) ? (
             <>
               {pokedux.map(item => <Pokemon key={item.id} id={item.id} data={item} />)}
             </>
-          )}
+          ) : <span className="pokedux__message">Your Pokedux is empty</span>}
         </article>
     </section>
   )
