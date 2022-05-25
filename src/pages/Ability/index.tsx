@@ -5,6 +5,7 @@ import { IAbility, IEffect, IInitialState } from "../../types"
 
 import { fetchFeature } from "../../utils/fetchFeature"
 import { getId } from "../../utils/getId"
+import { useHelmet } from "../../hooks/useHelmet"
 
 import { ReturnBar } from "../../components/ReturnBar"
 import { Section } from "../../components/Section"
@@ -22,6 +23,7 @@ const Ability: React.FC = (): JSX.Element => {
     const abilityProspect = abilities.find(ability => ability.id === Number(id))
     if(!abilityProspect) fetchFeature(id, "ability", addAbility)
     if(abilityProspect) {
+      useHelmet(`${abilityProspect.name} ability | Pokedux`, "Find all the abilities of your favorite pokemons")
       const tempEffect = abilityProspect.effect_entries.find(entry => entry.language.name === "en") as IEffect
       setEffect(tempEffect)
       setAbility(abilityProspect)

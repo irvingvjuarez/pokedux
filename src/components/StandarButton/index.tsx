@@ -8,7 +8,7 @@ interface StandarButtonProps {
 }
 
 const StandarButton: React.FC<StandarButtonProps> = ({ text, target }): JSX.Element => {
-  const { state:{pokedux}, addToPokedux, removeFromPokedux } = useContext(AppContext) as IInitialState
+  const { addToPokedux, removeFromPokedux } = useContext(AppContext) as IInitialState
   const [action, setAction] = useState(text)
   const handleClick = () => {
     if(action === "Catch it"){
