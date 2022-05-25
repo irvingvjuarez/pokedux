@@ -6,5 +6,8 @@ export const fetchResults = (initialState: IInitialState) => {
 
   fetch(API + "?limit=" + count)
     .then(res => res.json())
-    .then(data => updateResults(data.results.splice(results.length)))
+    .then(data => {
+      const fetchedResults = data.results.splice(results.length)
+      updateResults(fetchedResults)
+    })
 }

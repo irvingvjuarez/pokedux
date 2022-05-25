@@ -4,6 +4,7 @@ import SearchIcon from "../../assets/search.svg"
 import { AppContext } from "../../context/AppContext";
 import { IInitialState } from "../../types";
 import { fetchAllResults } from "./utils"
+
 interface SearchFieldProps {
   focus?: boolean;
   blurHandler?: () => void
@@ -12,7 +13,7 @@ interface SearchFieldProps {
 const SearchField: React.FC<SearchFieldProps> = ({ focus, blurHandler }): JSX.Element => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const initialState = useContext(AppContext) as IInitialState
-  const { state, updateSearches } = initialState
+  const { state:{searchResults, results}, updateSearches } = initialState
   const inputRef = useRef<HTMLInputElement | null>(null)
 
   const handleFocus = () => {
@@ -48,7 +49,7 @@ const SearchField: React.FC<SearchFieldProps> = ({ focus, blurHandler }): JSX.El
 
       {isActive && (
         <ul className="search-field__dropdown">
-          {state.searchResults.map(result => (
+          {searchResults.map(result => (
             <li key={result.name} onClick={cleanInput}>
               <Link to={`/pokemon/${result.name}`}>{result.name}</Link>
             </li>

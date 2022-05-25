@@ -19,8 +19,11 @@ import { GeneralSkeleton } from "../skeletons/General"
 
 const App: React.FC = (): JSX.Element => {
   const initialState = useInitialState() as IInitialState
-  const initialValue = useMemo(() => ({ ...initialState }), 
-    [initialState.state.pokemons, initialState.state.abilities, initialState.state.moves]
+  const { state:{pokemons, abilities, moves, searchResults, results} } = initialState
+
+  const initialValue = useMemo(
+    () => ({ ...initialState }), 
+    [pokemons, abilities, moves, searchResults, results]
   )
 
   return(
