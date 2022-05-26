@@ -1,0 +1,23 @@
+{
+  "short_name": "Pokedux",
+  "name": "Pokedux",
+  "icons": [
+    {
+      "src": "/src/assets/icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/src/assets/icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#fff",
+  "related_applications": [],
+  "prefer_related_applications": false
+}
