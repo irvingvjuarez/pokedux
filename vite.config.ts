@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      mode: "development",
+      mode: "production",
       base: "/",
       srcDir: "/src",
       filename: "sw.ts",
@@ -18,17 +18,17 @@ export default defineConfig({
         theme_color: "#fff",
         icons: [
           {
-            src: "/icon192.png",
+            src: "icon192.png",
             type: "image/png",
             sizes: "192x192"
           },
           {
-            src: "/icon512.png",
+            src: "icon512.png",
             type: "image/png",
             sizes: "512x512"
           },
           {
-            src: "/icon512.png",
+            src: "icon512.png",
             type: "image/png",
             sizes: "512x512",
             purpose: "any maskable"
