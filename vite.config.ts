@@ -10,7 +10,7 @@ export default defineConfig({
       mode: "production",
       base: "/",
       srcDir: "/src",
-      filename: "./sw.ts",
+      filename: "./sw.js",
       strategies: "injectManifest",
       manifest: {
         name: "Pokedux",
