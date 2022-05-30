@@ -1,19 +1,14 @@
 .notification{
-  width: 80%;
-  max-width: 500px;
-  position: fixed;
+  @include notification-prompt;
+  
   bottom: 30px;
   right: -100%;
-  background-color: white;
-  box-shadow: var(--shadow);
-  border-radius: 3px;
   padding: 10px 20px;
 
   font-size: 1rem;
   font-weight: 100;
   letter-spacing: 0.5px;
   transition: right 1s;
-  color: var(--contrast-color);
   animation: notificationAnimation 6s linear;
 }
 

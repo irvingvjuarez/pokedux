@@ -62,6 +62,16 @@ body {
   }
 }
 
+@mixin notification-prompt {
+  position: fixed;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 4px;
+  color: var(--contrast-color);
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
 @mixin subpage-wrapper{
   margin: 0 auto;
   width: 100%;

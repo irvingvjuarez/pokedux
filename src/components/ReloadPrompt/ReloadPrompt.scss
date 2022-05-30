@@ -7,28 +7,32 @@
   }
 
   &-toast {
-    position: fixed;
+    @include notification-prompt;
+
     right: 0;
     bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 16px;
     padding: 12px;
     border: 1px solid #8885;
-    border-radius: 4px;
     z-index: 1;
     text-align: left;
-    box-shadow: 3px 4px 5px 0 #8885;
-    background-color: white;
 
     &-message {
+      line-height: 1.3rem;
       margin-bottom: 8px;
     }
 
     &-button {
-      border: 1px solid #8885;
+      height: fit-content;
+      border: 1px solid;
       outline: none;
       margin-right: 5px;
-      border-radius: 2px;
-      padding: 3px 10px;
+      border-radius: 6px;
+      padding: 7px 10px;
+      background-color: white;
     }
   }
 }
