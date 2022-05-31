@@ -1,7 +1,7 @@
 import { IInitialState, IResult, } from "../types"
 
 export const fetchItems = (initialState: IInitialState) => {
-  const { state:{api, count}, addPokemons } = initialState
+  const { state:{api}, addPokemons } = initialState
   let newApi: string
   let newResults: IResult[]
 
@@ -27,6 +27,9 @@ export const fetchItems = (initialState: IInitialState) => {
         }))
 
         addPokemons(results, newApi, newResults)
+      })
+      .catch(() => {
+        console.log("Fetch couldn't be done")
       })
   }
 }
