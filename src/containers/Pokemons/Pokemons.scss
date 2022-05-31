@@ -3,7 +3,13 @@
 
   &-container{
     @include standard-grid;
-    min-height: 100vh;
+  }
+
+  &__error-msg{
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+    color: var(--contrast-color);
   }
 }
 

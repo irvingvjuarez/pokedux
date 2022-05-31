@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, Fragment, useMemo } from "react"
+import { useContext, useEffect, useRef, useMemo } from "react"
 import { AppContext } from "../../context/AppContext"
 import { IInitialState } from "../../types"
 import { fetchItems } from "../../utils/fetchItems"
@@ -23,24 +23,28 @@ const Pokemons: React.FC = (): JSX.Element => {
     <section className="pokemons">
       <div className="pokemons-container" >
         {pokemons.length > 1 ? (
-          <Fragment>
+          <>
             {pokemons.map(pokemon => (
               <Pokemon
                 key={pokemon.id}
                 id={pokemon.id}
                 data={pokemon} />
             ))}
-          </Fragment>
+          </>
         ) : (
-          <Fragment>
+          <>
             {ARR.map(item => <PokemonSkeleton id={item} key={item} />)}
-          </Fragment>
+          </>
         )}
       </div>
 
       <div className="visor hidden pokemons-container" ref={visorRef}>
         {ARR.map(item => <PokemonSkeleton id={item} key={item} />)}
       </div>
+
+      <span className="pokemons__error-msg">
+        Sorry. The content cannot be loaded, there has been an error.
+      </span>
     </section>
   )
 }

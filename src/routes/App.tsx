@@ -10,6 +10,7 @@ const NotFound = lazy(() => import("../pages/NotFound"))
 const Pokedux = lazy(() => import("../pages/Pokedux"))
 const Modal = lazy(() => import("../containers/Modal"))
 const Notification = lazy(() => import("../components/Notification"))
+import { ReloadPrompt } from "../components/ReloadPrompt"
 
 import Layout from "../containers/Layout"
 import { useInitialState } from "../hooks/useInitialState"
@@ -87,6 +88,8 @@ const App: React.FC = (): JSX.Element => {
             <Notification />
           </Suspense>
         )}
+
+        <ReloadPrompt />
       </AppContext.Provider>
     </BrowserRouter>
   )

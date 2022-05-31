@@ -13,7 +13,7 @@ class Observer {
     if(!Observer.instance){
       Observer.instance = new IntersectionObserver((entries, observer) => {
         const visor = entries[0]
-        if(visor.isIntersecting){
+        if(visor.isIntersecting && navigator.onLine){
           visor.target.classList.remove("hidden")
           fetchItems(Observer.state)
         }else{
