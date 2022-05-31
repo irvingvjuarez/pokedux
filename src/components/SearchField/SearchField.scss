@@ -38,13 +38,15 @@
   label{
     display: flex;
     align-items: flex-end;
+    margin-right: 4px;
   }
   
   input{
     border: none;
     outline: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     min-width: 200px;
+    padding: 9px 0;
   }
   
   img{
@@ -53,5 +55,11 @@
 
   &.active{
     box-shadow: -1px -1px 1rem 100rem rgba(0,0,0,0.5);
+  }
+
+  @media screen and (min-width: 900px){
+    input{
+      padding: 3px 0;
+    }
   }
 }
