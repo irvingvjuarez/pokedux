@@ -12,6 +12,13 @@ export default defineConfig({
       srcDir: "/src",
       filename: "./sw.js",
       strategies: "injectManifest",
+      workbox: {
+        globPatterns: [
+          "**\/*.{js,css,html}",
+          "assets\/logo.*\.png",
+          "assets\/search.*\.svg"
+        ]
+      },
       manifest: {
         name: "Pokedux",
         short_name: "Pokedux",
@@ -39,7 +46,7 @@ export default defineConfig({
         display: "standalone",
         scope: "/",
         related_applications: [],
-        prefer_related_applications: false
+        prefer_related_applications: false,
       }
     })
   ]
